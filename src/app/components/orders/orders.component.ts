@@ -24,7 +24,7 @@ export class OrdersComponent implements OnInit {
     // orders: Observable<any>;
     // order: Observable<any>;
     
-    getOrders(){
+    getOrdersTamano(){
          this.dataApi
          .getOrders()
          .subscribe((res:any) => {
@@ -48,6 +48,7 @@ export class OrdersComponent implements OnInit {
   
   ngOnInit() {
      this.getOrders();
+     this.getOrdersTamano();
   }
 
 
