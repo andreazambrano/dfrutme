@@ -49,7 +49,7 @@ export class UserWService {
 	positionOrder:string;
 	queue:any[]=[];
 	ruta:string;
-	orderSelected:any[]=[];
+	orderSelected:any={};
 	selectorA:boolean;
 	selectorB:boolean;
 	sigPedido:string;
