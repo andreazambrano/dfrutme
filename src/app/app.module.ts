@@ -42,7 +42,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductdetailComponent } from './components/productdetail/productdetail.component';
 import { ConfigComponent } from './components/config/config.component';
-import { SalesComponent } from './components/sales/sales.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderdetailComponent } from './components/orderdetail/orderdetail.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SalesComponent } from './components/sales/sales.component';
     FooterComponent,
     ProductdetailComponent,
     ConfigComponent,
-    SalesComponent,
+    OrdersComponent,
+    OrderdetailComponent,
   
   ],
   imports: [

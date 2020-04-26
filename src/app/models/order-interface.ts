@@ -1,4 +1,4 @@
-export interface SaleInterface{
+export interface OrderInterface{
 	id?:string;	
 	car?:Array<string>;
 	direccion?:string;	 

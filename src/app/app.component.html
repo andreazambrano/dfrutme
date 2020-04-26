@@ -8,10 +8,15 @@
                     <div></div>
                     <div></div>
                 </div>
-                <i class="i-Speach-Bubble-3 mr-3 text-20 cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chat"></i>
-                <i class="i-Email mr-3 text-20 mobile-hide cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Inbox"></i>
-                <i class="i-Arrow-Refresh mobile-hide mr-3 text-20 cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Actualizar"></i>
+                <i class="i-Arrow-Left mr-3 text-20 cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pedido anterior" [hidden]="!router.url.includes('/orderdetail') || this._uw.indice==0" (click)="anterior()"> </i>
+                <span [hidden]="!router.url.includes('/orderdetail')">  
+                {{this._uw.indice+1}} / {{this._uw.tamano}} 
+                </span>
+                <i class="i-Arrow-Right mr-3 text-20 mobile-hide cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Próximo pedido" [hidden]="!router.url.includes('/orderdetail') || this._uw.tamano-this._uw.indice<=1"  (click)="siguiente()"></i>
+                <!-- <i class="i-Arrow-Refresh mobile-hide mr-3 text-20 cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Actualizar"></i> -->
+                <i class="i-Arrow-Refresh mobile-hide mr-3 text-20 cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Actualizar"[hidden]="router.url.includes('/orderdetail')"> </i>
             </div>
+
             <div class="header-part-right" >
 
                  <button class="btn btn-success m-1" type="button" [hidden]="!router.url.includes('/products')"><i class="fa fa-plus text-15"></i> </button>
@@ -53,7 +58,14 @@
             	<i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen=""></i>
                 <div class="dropdown dropleft"><i class="i-Safe-Box text-muted header-icon" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <div class="menu-icon-grid"><a href="dashboard1.html#"><i class="i-Shop-4"></i> Home</a><a href="dashboard1.html#"><i class="i-Library"></i> UI Kits</a><a href="dashboard1.html#"><i class="i-Drop"></i> Apps</a><a href="dashboard1.html#"><i class="i-File-Clipboard-File--Text"></i> Forms</a><a href="dashboard1.html#"><i class="i-Checked-User"></i> Sessions</a><a href="dashboard1.html#"><i class="i-Ambulance"></i> Support</a></div>
+                        <div class="menu-icon-grid">
+                            <a routerLink=""><i class="i-Shop-4"></i> Resumen</a>
+                            <a routerLink="orders"><i class="i-Check"></i> Pedidos</a>
+                            <a ><i class="i-Drop"></i> Ventas</a>
+                           <!--  <a href="dashboard1.html#"><i class="i-File-Clipboard-File--Text"></i> Forms</a>
+                            <a href="dashboard1.html#"><i class="i-Checked-User"></i> Sessions</a>
+                            <a href="dashboard1.html#"><i class="i-Ambulance"></i> Support</a> -->
+                        </div>
                     </div>
                 </div>
             </div>

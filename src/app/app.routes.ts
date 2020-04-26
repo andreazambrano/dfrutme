@@ -6,7 +6,8 @@ import {
 	TestappComponent,
 	SidenavComponent,
 	ConfigComponent,
-	SalesComponent
+	OrdersComponent,
+	OrderdetailComponent
 	}from "./components/index.paginas";
 
 	import { AuthGuard } from './guards/auth.guard';
@@ -18,7 +19,8 @@ const app_routes: Routes = [
 	{path:'productdetail/:id',component:ProductdetailComponent},
 	{path:'config',component:ConfigComponent},
 	{path:'sidenav',component:SidenavComponent},
-	{path:'sales',component:SalesComponent},
+	{path:'orders',component:OrdersComponent},
+	{path:'orderdetail',component:OrderdetailComponent},
 	{path:'**',pathMatch:'full',redirectTo:''}
 	];
 	export const app_routing = RouterModule.forRoot(app_routes);

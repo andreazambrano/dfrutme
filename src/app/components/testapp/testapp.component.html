@@ -18,7 +18,7 @@
                 <div class="card-body text-center"><i class="i-Check"></i>
                     <div class="content">
                         <p class="text-muted mt-2 mb-0">Pedidos</p>
-                        <p class="text-primary text-24 line-height-1 mb-2">53</p>
+                        <p class="text-primary text-24 line-height-1 mb-2">{{this._uw.tamano}}</p>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         </div>
                        
                         <div >
-                            <i class="i-Full-Screen header-icon d-none d-sm-inline-block" routerLink="sales"></i>
+                            <i class="i-Full-Screen header-icon d-none d-sm-inline-block" routerLink="orders"></i>
                         </div>
                     </div>
                     <div class="ul-widget-body">
@@ -85,7 +85,7 @@
                                     </thead>
                                     <tbody>
                                         <!-- start tr-->
-                                        <tr *ngFor="let sale of sales">
+                                        <tr *ngFor="let sale of orders">
                                             <!-- <td><span>
                                                     <div class="ul-widget_user-card">
                                                         <div class="ul-widget4__img"><img id="userDropdown" src="assets/dist-assets/images/faces/1.jpg" alt="" /></div>
@@ -105,7 +105,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <nav aria-label="Page navigation example">
+                           <!--  <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="widget-list.html#">Anterior</a></li>
                                     <li class="page-item"><a class="page-link" href="widget-list.html#">1</a></li>
@@ -113,7 +113,7 @@
                                     <li class="page-item"><a class="page-link" href="widget-list.html#">3</a></li>
                                     <li class="page-item"><a class="page-link" href="widget-list.html#">Proximo</a></li>
                                 </ul>
-                            </nav>
+                            </nav> -->
                         </div>
                     </div>
                 </div>

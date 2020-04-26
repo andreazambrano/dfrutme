@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { UserWService } from "../../services/user-w.service";
 import { InfoInterface } from '../../models/info-interface'; 
-import { SaleInterface } from '../../models/sale-interface'; 
+import { OrderInterface } from '../../models/order-interface'; 
 import { DataApiService } from '../../services/data-api.service';
 
 @Component({
@@ -18,8 +18,8 @@ export class TestappComponent implements OnInit {
      public _uw:UserWService
 
      ) { }
-  public sales:SaleInterface;
-   public sale:SaleInterface;
+  public orders:OrderInterface;
+   public order:OrderInterface;
   info:any={};
   loadAPI = null;  
   url = "assets/dist-assets/js/scripts/dashboard.v1.script.min.js";
@@ -55,15 +55,15 @@ export class TestappComponent implements OnInit {
       document.getElementsByTagName("head")[0].appendChild(node);
     }
 
- getSalePending(){
+ getOrderPending(){
         this.dataApi
-        .getSalePending()
-        .subscribe((sales: SaleInterface) => (this.sales=sales));
+        .getOrderPending()
+        .subscribe((orders: OrderInterface) => (this.orders=orders));
     }
-     getSales(){
+     getOrders(){
         this.dataApi
-        .getSales()
-        .subscribe((sales: SaleInterface) => (this.sales=sales));
+        .getOrders()
+        .subscribe((orders: OrderInterface) => (this.orders=orders));
     }
 
   ngOnInit() {
@@ -74,7 +74,7 @@ export class TestappComponent implements OnInit {
         }
      this._uw.loaded=true;
      this.loadInfo();
-     this.getSales();
+     this.getOrders();
   }
 
 }

@@ -6,6 +6,7 @@ import { ProductInfoService } from "./services/product-info.service";
 import { UserWService } from "./services/user-w.service";
 import { InfoInterface } from './models/info-interface'; 
 import { ActivatedRoute, Params} from '@angular/router';
+import { OrderInterface } from './models/order-interface';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 // declare var $: any;
@@ -25,10 +26,12 @@ export class AppComponent implements OnInit {
   private route:ActivatedRoute,
   private location: Location,
   public router: Router
-    ){
+    ){}
 
- }
-   info:any={};
+  public orders:OrderInterface;
+  public order:OrderInterface; 
+  info:any={};
+
   loadInfo(){
     this.dataApi
     .getInfo()
@@ -39,6 +42,38 @@ export class AppComponent implements OnInit {
         this._uw.info=this.info;
         }
      });
+  }
+
+     getOrders(){
+         this.dataApi
+         .getOrders()
+         .subscribe((res:any) => {
+      if (res[0] === undefined){
+        return
+        }else{
+          this.orders=res;
+         this._uw.tamano = res.length;
+        }
+      });
+    }
+
+    getDetails(id: string){
+      this.dataApi.getOrderById(id).subscribe(order => (this._uw.orderSelected = order));
+    }
+
+  anterior(){
+    this.getOrders();
+    if (this._uw.indice>0){
+      this._uw.indice=this._uw.indice-1;
+    }
+    this.getDetails(this.orders[this._uw.indice].id);
+  }
+  siguiente(){
+    this.getOrders();
+    if (this._uw.tamano-this._uw.indice>1){
+      this._uw.indice=this._uw.indice+1;
+    }   
+    this.getDetails(this.orders[this._uw.indice].id);
   }
 
   setColp(){
@@ -63,6 +98,7 @@ export class AppComponent implements OnInit {
             this.loadScript2();
           });
         }
+        this.getOrders();
         this.loadInfo();
         this._uw.loaded=true;
   }

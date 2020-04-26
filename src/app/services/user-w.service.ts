@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserWService {
 	admin:boolean;
 	adminName:string;
+	antPedido:string;
 	affiliate:boolean;
 	assBook:any={};
 	assValidation:any={};
@@ -31,8 +32,12 @@ export class UserWService {
 	file:any[]=[];
 	foredit:any={};
 	idCard:string;
+	idOrder:string;
+	idPedidoActual:string;
+	idSelected:string;
 	imagePreviewProduct:string;
 	images:any[]=[];
+	indice:number=0;
 	info:any={};
 	isLogged:boolean=false;
 	loaded:boolean=false;
@@ -41,11 +46,16 @@ export class UserWService {
 	name:string;
 	numProd:number=0;
 	partner:boolean;
+	positionOrder:string;
 	queue:any[]=[];
 	ruta:string;
+	orderSelected:any[]=[];
 	selectorA:boolean;
 	selectorB:boolean;
+	sigPedido:string;
 	subTotal:number=0;
+	tamano:number=0;
+	tamanoPedidos:number=0;
 	tixs:any[]=[];
 	tixPreview:any={};
 	tixsOrigin:any[]=[];

@@ -29,8 +29,8 @@
 
     <div class="product-cart">
         <div class="row list-grid">
-            <div class="list-item col-md-3" *ngFor="let tix of tixs" >
-                <a routerLink="/productdetail/{{tix.id}}">
+            <div class="list-item col-md-3" *ngFor="let tix of tixs; index as i" >
+                <a  routerLink="/productdetail/{{tix.id}}" >
                     <div class="card o-hidden mb-4 d-flex flex-column">
                         <div class="list-thumb d-flex"><img alt="" src="{{tix.images[0]}}" /></div>
                         <div class="flex-grow-1 d-bock">

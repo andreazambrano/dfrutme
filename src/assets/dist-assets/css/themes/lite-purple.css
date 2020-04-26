@@ -7121,6 +7121,10 @@ a.text-success:hover, a.text-success:focus {
 
 a.text-info:hover, a.text-info:focus {
   color: #001d40 !important; }
+.text-info2 {
+  color: #0073ff !important; }
+a.text-info2:hover, a.text-info2:focus {
+  color: #001d40 !important; }
 
 .text-warning {
   color: #ffc107 !important; }
