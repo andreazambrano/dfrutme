@@ -33,15 +33,15 @@
                                         <!-- start tr-->
                                         <tr *ngFor="let order of orders; index as i" >
                                            
-                                                  <td><a (click)="setId(order,i,orders.length)" style="cursor: pointer !important; ">{{order.personaContacto}}</a></td>
-                                            <td> <a (click)="setId(order,i,orders.length)">11/28/2016</a></td>
-                                                <td > <a (click)="setId(order,i,orders.length)"><span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
+                                                  <td><a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">{{order.personaContacto}}</a></td>
+                                            <td> <a (click)="setId(order,i,this._uw.tamano)">11/28/2016</a></td>
+                                                <td > <a (click)="setId(order,i,this._uw.tamano)"><span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
                                                     <span [hidden]="order.status!='proccess'" class="badge badge-pill badge-outline-info p-2 m-1">En proceso</span>
                                                 </a></td>
                 
 
-                                            <td> <a (click)="setId(order,i,orders.length)">{{order.total}}</a></td>
-                                               <td><a (click)="setId(order,i,orders.length)">{{order.metodo}}</a></td>
+                                            <td> <a (click)="setId(order,i,this._uw.tamano)">{{order.total}}</a></td>
+                                               <td><a (click)="setId(order,i,this._uw.tamano)">{{order.metodo}}</a></td>
                                                <td>
 
                                                 <button class="btn bg-white _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span></button>

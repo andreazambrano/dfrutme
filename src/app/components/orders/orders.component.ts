@@ -23,8 +23,23 @@ export class OrdersComponent implements OnInit {
     public order:OrderInterface;
     // orders: Observable<any>;
     // order: Observable<any>;
-  
+    
+    getOrders(){
+         this.dataApi
+         .getOrders()
+         .subscribe((res:any) => {
+      if (res[0] === undefined){
+        return
+        }else{
+          this.orders=res;
+         this._uw.tamano = res.length;
+        }
+      });
+    }
  
+ 
+
+
     getOrders(){
         this.dataApi
         .getOrders()
@@ -34,6 +49,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
      this.getOrders();
   }
+
 
   setId(order,indice,tamano){
     this._uw.orderSelected=order;
