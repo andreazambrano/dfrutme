@@ -5,6 +5,9 @@ import { UserWService } from "../../services/user-w.service";
 import { InfoInterface } from '../../models/info-interface'; 
 import { OrderInterface } from '../../models/order-interface'; 
 import { DataApiService } from '../../services/data-api.service';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-testapp',
@@ -15,14 +18,20 @@ export class TestappComponent implements OnInit {
 
   constructor(
      private dataApi: DataApiService,
-     public _uw:UserWService
+     public _uw:UserWService,
+        private router: Router, 
+    private location: Location, 
+    private authService: AuthService
 
      ) { }
   public orders:OrderInterface;
    public order:OrderInterface;
   info:any={};
+    public isLogged =false;
   loadAPI = null;  
   url = "assets/dist-assets/js/scripts/dashboard.v1.script.min.js";
+    url2 = "assets/dist-assets/js/plugins/hopscotch.min.js";
+    url3 = "assets/dist-assets/js/scripts/hopscotch.script.min.js";
  setColp(){
     this.loadInfo();
     this._uw.currency=this._uw.info[0].colp;
@@ -54,6 +63,22 @@ export class TestappComponent implements OnInit {
       node.charset = "utf-8";
       document.getElementsByTagName("head")[0].appendChild(node);
     }
+       public loadScript2() {
+      let node = document.createElement("script");
+      node.src = this.url2;
+      node.type = "text/javascript";
+      node.async = true;
+      node.charset = "utf-8";
+      document.getElementsByTagName("head")[0].appendChild(node);
+    }
+           public loadScript3() {
+      let node = document.createElement("script");
+      node.src = this.url3;
+      node.type = "text/javascript";
+      node.async = true;
+      node.charset = "utf-8";
+      document.getElementsByTagName("head")[0].appendChild(node);
+    }
 
  getOrderPending(){
         this.dataApi
@@ -67,14 +92,29 @@ export class TestappComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.onCheckUser();
      if (this._uw.loaded==true){
           this.loadAPI = new Promise(resolve => {
             this.loadScript();
+            this.loadScript2();
+             this.loadScript3();
            });
         }
      this._uw.loaded=true;
      this.loadInfo();
      this.getOrders();
   }
+   onCheckUser(): void {
+    if (this.authService.getCurrentUser() === null) {
+         this.isLogged = false;
+      this._uw.isLogged=false;
+      this.router.navigate(['/admin']);
+    } else {
+      this.isLogged = true;
+      this._uw.isLogged = true;
+      // this.router.navigate(['']);
+    }
+  }
+
 
 }

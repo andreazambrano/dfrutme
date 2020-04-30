@@ -17,7 +17,7 @@
                     <div class="ul-widget-body">
                         <div class="ul-widget3">
                             <div class="ul-widget6__item--table">
-                                <table class="table">
+                                <table class="table" style="font-size: 1.2rem;">
                                     <thead>
                                         <tr class="ul-widget6__tr--sticky-th">
                                             <!-- <th scope="col">#</th> -->
@@ -34,21 +34,21 @@
                                         <tr *ngFor="let order of orders; index as i" >
                                            
                                                   <td><a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">{{order.personaContacto}}</a></td>
-                                            <td> <a (click)="setId(order,i,this._uw.tamano)">11/28/2016</a></td>
-                                                <td > <a (click)="setId(order,i,this._uw.tamano)"><span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
+                                            <td> <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">11/28/2016</a></td>
+                                                <td > <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; "><span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
                                                     <span [hidden]="order.status!='proccess'" class="badge badge-pill badge-outline-info p-2 m-1">En proceso</span>
                                                 </a></td>
                 
 
-                                            <td> <a (click)="setId(order,i,this._uw.tamano)">{{order.total}}</a></td>
-                                               <td><a (click)="setId(order,i,this._uw.tamano)">{{order.metodo}}</a></td>
+                                            <td> <a (click)="setId(order,i,this._uw.tamano)"style="cursor: pointer !important; "> {{order.total}}</a></td>
+                                               <td><a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">{{order.metodo}}</a></td>
                                                <td>
 
                                                 <button class="btn bg-white _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span></button>
                                                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                    <a class="dropdown-item ul-widget__link--font" href="widget-list.html#"><i class="i-Check"> </i> Ver detalle de pedido</a>
-                                                    <a class="dropdown-item ul-widget__link--font" href="widget-list.html#"><i class="i-Over-Time-2"> </i> Ver histórico de transacción</a>
-                                                    <a class="dropdown-item ul-widget__link--font" href="widget-list.html#"><i class="i-Speach-Bubble-11"> </i> Abrir chat Whatsapp</a>
+                                                    <a class="dropdown-item ul-widget__link--font" style="cursor: pointer !important; " (click)="setId(order,i,this._uw.tamano)"><i class="i-Check"> </i> Ver detalle de pedido</a>
+                                                    <a class="dropdown-item ul-widget__link--font" style="cursor: pointer !important; " (click)="setId(order,i,this._uw.tamano)"><i class="i-Over-Time-2"> </i> Ver histórico de transacción</a>
+                                                    <a class="dropdown-item ul-widget__link--font" href="https://wa.me/{{order.telefono}}" target="_blank"><i class="i-Speach-Bubble-11"> </i> Abrir chat Whatsapp</a>
                                                 </div>
                                             </td>
                                            

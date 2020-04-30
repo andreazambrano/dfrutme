@@ -17,6 +17,7 @@ export class UserWService {
 	car:any[]=[];
 	card:any={};
 	cardsResult:any[]=[];
+	continuar:boolean=false;
 	currency:number=1;
 	editingTrek:boolean=false;
 	errorFormAffiliate:boolean;
@@ -31,6 +32,7 @@ export class UserWService {
 	footer:boolean=true;
 	file:any[]=[];
 	foredit:any={};
+	formulario:boolean=true;
 	idCard:string;
 	idOrder:string;
 	idPedidoActual:string;
@@ -54,6 +56,7 @@ export class UserWService {
 	selectorB:boolean;
 	sigPedido:string;
 	subTotal:number=0;
+	tamanoProducts:number=0;
 	tamano:number=0;
 	tamanoPedidos:number=0;
 	tixs:any[]=[];

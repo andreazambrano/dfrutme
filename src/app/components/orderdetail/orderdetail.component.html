@@ -1,7 +1,7 @@
 <div class="main-content pt-4" *ngIf="this._uw.orderSelected">
      <div class="breadcrumb">
         <ul>
-            <li><a routerLink="/orders" >Pedidodidos</a></li>
+            <li><a routerLink="/orders" >Pedidos</a></li>
             <li>Detalle del pedido</li>
         </ul>
     </div>
@@ -29,7 +29,7 @@
                   </div>
                 </div>
                 <div class="ul-product-cart__invoice">
-                    <table class="table" >
+                    <table class="table" *ngIf="this._uw.orderSelected">
                         <tbody >
                         	<tr >
                         		<th class="text-16" scope="row"style="border-top: 0px;"></th >
@@ -37,17 +37,24 @@
                                     <!-- <h4 class="heading text-primary">{{this._uw.orderSelected.id}} </h4> -->
                                 </td>
                         	</tr>
+                             <tr>
+                                <th class="text-16 text-right" scope="row" ><i class="i-Map-Marker"></i></th>
+                                <td>
+                                    {{this._uw.orderSelected.direccion}}
+                                </td>
+                            </tr>
                             <tr *ngIf="this._uw.orderSelected" >
                                 <th class="text-16 text-right" scope="row"><i class="i-Boy text-19"></i></th>
                                 <td class="text-16 font-weight-700">{{this._uw.orderSelected.personaContacto}} 
                                 	<button class="btn bg-white _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span></button>
                                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                        <a class="dropdown-item ul-widget__link--font" href="widget-list.html#"><i class="i-Map-Marker"> </i> {{this._uw.orderSelected.direccion}}</a>
-                                        <a class="dropdown-item ul-widget__link--font" href="widget-list.html#"><i class="i-Old-Telephone"> </i>  {{this._uw.orderSelected.telefono}}</a>
-                                        <a class="dropdown-item ul-widget__link--font" href="widget-list.html#"><i class="i-Envelope"> </i>   {{this._uw.orderSelected.email}}</a>
+                                  <!--       <a class="dropdown-item ul-widget__link--font"><i class="i-Map-Marker"> </i> {{this._uw.orderSelected.direccion}}</a> -->
+                                        <a class="dropdown-item ul-widget__link--font"><i class="i-Old-Telephone"> </i>  {{this._uw.orderSelected.telefono}}</a>
+                                        <a class="dropdown-item ul-widget__link--font" href="mailto:{{this._uw.orderSelected.email}}"> <i class="i-Envelope"> </i>   {{this._uw.orderSelected.email}}</a>
                                     </div>	
                                 </td>
                             </tr>
+                           
                              <tr>
                                 <th class="text-16 text-right" scope="row" ><i class="i-Money-2 text-19"></i></th>
                                 <td>

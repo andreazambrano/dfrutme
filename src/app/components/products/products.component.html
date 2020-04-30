@@ -3,7 +3,7 @@
     <div class="breadcrumb">
         <h1>Productos en inventario</h1>
         <ul>
-            <!-- <li><h2 *ngIf="tixs">({{this.tixs.length}})</h2></li> -->
+            <li><h2 *ngIf="tixs">({{this._uw.tamanoProducts}})</h2></li>
             Mostrar: 
         </ul>
         <div class="col">
@@ -12,12 +12,12 @@
                     {{this.mostrar}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" (click)="getBulbos()">Bulbos</a>
-                    <a class="dropdown-item" (click)="getFrutos()">Frutos</a>
-                    <a class="dropdown-item" (click)="getLegumbres()">Legumbres</a>
-                    <a class="dropdown-item" (click)="getTuberculos()">Tubérculos</a>
-                    <a class="dropdown-item" (click)="getVerduras()">Verduras</a>
-                    <a class="dropdown-item" (click)="getAllTixs()">Todos</a>
+                    <a class="dropdown-item" (click)="getBulbos()"  style="cursor: pointer !important;">Bulbos</a>
+                    <a class="dropdown-item" (click)="getFrutos()"  style="cursor: pointer !important;">Frutos</a>
+                    <a class="dropdown-item" (click)="getLegumbres()"  style="cursor: pointer !important;">Legumbres</a>
+                    <a class="dropdown-item" (click)="getTuberculos()"  style="cursor: pointer !important;">Tubérculos</a>
+                    <a class="dropdown-item" (click)="getVerduras()"  style="cursor: pointer !important;">Verduras</a>
+                    <a class="dropdown-item" (click)="getAllTixs()"  style="cursor: pointer !important;">Todos</a>
                 </div>
             </div>
         </div>

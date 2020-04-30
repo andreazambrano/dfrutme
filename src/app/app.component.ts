@@ -9,6 +9,7 @@ import { ActivatedRoute, Params} from '@angular/router';
 import { OrderInterface } from './models/order-interface';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 // declare var $: any;
 declare var $: any;
 @Component({
@@ -25,12 +26,17 @@ export class AppComponent implements OnInit {
  	public dataApi:DataApiService,
   private route:ActivatedRoute,
   private location: Location,
-  public router: Router
+  public router: Router,
+  private authService: AuthService
     ){}
 
   public orders:OrderInterface;
   public order:OrderInterface; 
   info:any={};
+    onLogout():void{
+    this.authService.logoutUser();
+    location.reload();
+  }
 
   loadInfo(){
     this.dataApi

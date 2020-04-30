@@ -30,7 +30,12 @@ export class DataApiService {
   		"Content-Type":"application/json",
   		Authorization: this.authService.getToken()
   		});
-
+	saveTixFree(tix :TixInterface){
+		const url_api='https://db.andesproadventures.com:3025/api/tixes';
+		return this.http
+		.post<TixInterface>(url_api, tix)
+		.pipe(map(data => data));
+	}
   	getSalePending(){	
 		const url_api='https://db.andesproadventures.com:3025/api/sale?filter[where][status]=new';
 		return (this.sales = this.http.get(url_api));

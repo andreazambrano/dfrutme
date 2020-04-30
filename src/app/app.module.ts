@@ -34,6 +34,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
+
+import { FilePickerModule } from  '../assets/file-picker/src/public_api';
 //COMPONENTS
 import { TestappComponent } from './components/testapp/testapp.component';
 import { Component, Inject} from '@angular/core';
@@ -44,6 +46,9 @@ import { ProductdetailComponent } from './components/productdetail/productdetail
 import { ConfigComponent } from './components/config/config.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderdetailComponent } from './components/orderdetail/orderdetail.component';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { SuccessComponent } from './components/success/success.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,9 @@ import { OrderdetailComponent } from './components/orderdetail/orderdetail.compo
     ConfigComponent,
     OrdersComponent,
     OrderdetailComponent,
+    AddproductComponent,
+    SuccessComponent,
+    AdminComponent,
   
   ],
   imports: [
@@ -74,6 +82,7 @@ import { OrderdetailComponent } from './components/orderdetail/orderdetail.compo
     MatTableModule,
     ArchwizardModule,
     CarouselModule,
+     FilePickerModule,
     MatRadioModule,
   ],
   exports: [

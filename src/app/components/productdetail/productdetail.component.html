@@ -47,9 +47,9 @@
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <form class="form" [formGroup]="ngFormCostPrice" *ngIf="tix">
                                     <div class="card card-icon mb-4">
-                                        <div class="card-body text-center"><i class="i-Coin" (click)="editarCostPrice()"></i>
-                                            <p class="text-muted mt-2 mb-2">Precio de costo (Bs.S)</p>
-                                            <p class="text-primary text-24 line-height-1 m-0" [hidden]="editingCostPrice" (click)="editarCostPrice()">{{tix.costPrice}}</p>
+                                        <div class="card-body text-center"><i class="i-Coin" (click)="editarCostPrice()"  style="cursor: pointer !important;"></i>
+                                            <p class="text-muted mt-2 mb-2"  (click)="editarCostPrice()" style="cursor: pointer !important;">Precio de costo (Bs.S)</p>
+                                            <p class="text-primary text-24 line-height-1 m-0" [hidden]="editingCostPrice" (click)="editarCostPrice()" style="cursor: pointer !important; ">{{tix.costPrice}}</p>
                                             <div class="col-sm-12" [hidden]="!editingCostPrice">
                                                 <input type="number" class="form-control" id="costPrice"  placeholder="" min="0" [(ngModel)]="tix.costPrice"
                                                 formControlName="costPrice" 
@@ -76,9 +76,9 @@
                                 </div> -->
                                  <form class="form" [formGroup]="ngFormBeneficio" *ngIf="tix">
                                     <div class="card card-icon mb-4">
-                                        <div class="card-body text-center"><i class="i-Coins-2"  (click)="editarBeneficio()"></i>
-                                            <p class="text-muted mt-2 mb-2" (click)="editarBeneficio()"> Margen de Ganancia (%)</p>
-                                            <p class="text-primary text-24 line-height-1 m-0" [hidden]="editingBeneficio" (click)="editarBeneficio()">{{tix.beneficio}}</p>
+                                        <div class="card-body text-center"><i class="i-Coins-2"  (click)="editarBeneficio()"  style="cursor: pointer !important;"></i>
+                                            <p class="text-muted mt-2 mb-2" (click)="editarBeneficio()"  style="cursor: pointer !important;"> Margen de Ganancia (%)</p>
+                                            <p class="text-primary text-24 line-height-1 m-0" [hidden]="editingBeneficio" (click)="editarBeneficio()" style="cursor: pointer !important;">{{tix.beneficio}}</p>
                                             <div class="col-sm-12" [hidden]="!editingBeneficio">
                                                 <input type="number" class="form-control" id="beneficio"  placeholder="" min="0" max="500"[(ngModel)]="tix.beneficio"
                                                 formControlName="beneficio" 
@@ -105,12 +105,12 @@
                                 </div> -->
 
 
-                                <form class="form" [formGroup]="ngFormStock" *ngIf="tix">
+                                <form class="form" [formGroup]="ngFormStock" *ngIf="tix" >
                                     <div class="card card-icon mb-4">
-                                        <div class="card-body text-center"><i class="i-Ship-2"  (click)="editarStock()"></i>
-                                            <p class="text-muted mt-2 mb-2" (click)="editarStock()"> Existencia / Stock minimo</p>
-                                            <p class="text-primary text-24 line-height-1 m-0" [hidden]="editingStock || tix.stock<tix.stockmin" (click)="editarStock()">{{tix.stock}} / {{tix.stockmin}}</p>
-                                             <p class="text-danger text-24 line-height-1 m-0" [hidden]="editingStock || tix.stock>=tix.stockmin" (click)="editarStock()">{{tix.stock}} / {{tix.stockmin}}</p>
+                                        <div class="card-body text-center" ><i class="i-Ship-2"  (click)="editarStock()"  style="cursor: pointer !important;"></i>
+                                            <p class="text-muted mt-2 mb-2" (click)="editarStock()"  style="cursor: pointer !important;"> Existencia / Stock minimo</p>
+                                            <p class="text-primary text-24 line-height-1 m-0" [hidden]="editingStock || tix.stock<tix.stockmin" (click)="editarStock()" style="cursor: pointer !important;">{{tix.stock}} / {{tix.stockmin}}</p>
+                                             <p class="text-danger text-24 line-height-1 m-0" [hidden]="editingStock || tix.stock>=tix.stockmin" (click)="editarStock()" style="cursor: pointer !important;">{{tix.stock}} / {{tix.stockmin}}</p>
                                             <div class="col-sm-12" [hidden]="!editingStock">
                                                 <input type="number" class="form-control" id="stock"  placeholder="" min="0" max="500"[(ngModel)]="tix.stock"
                                                 formControlName="stock" 
