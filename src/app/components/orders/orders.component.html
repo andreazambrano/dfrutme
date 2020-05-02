@@ -35,8 +35,14 @@
                                            
                                                   <td><a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">{{order.personaContacto}}</a></td>
                                             <td> <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">11/28/2016</a></td>
-                                                <td > <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; "><span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
-                                                    <span [hidden]="order.status!='proccess'" class="badge badge-pill badge-outline-info p-2 m-1">En proceso</span>
+                                                
+
+                                                <td > 
+                                                    <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">
+                                                        <span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
+                                                        <span [hidden]="order.status!='verificar'" class="badge badge-pill badge-outline-warning p-2 m-1">Por verificar</span>
+                                                        <span [hidden]="order.status!='proccess'" class="badge badge-pill badge-outline-info p-2 m-1">En proceso</span>
+                                                           <span [hidden]="order.status!='success'" class="badge badge-pill badge-outline-primary p-2 m-1">Concretada</span>
                                                 </a></td>
                 
 

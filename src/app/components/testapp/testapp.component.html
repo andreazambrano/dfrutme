@@ -94,21 +94,25 @@
                                         </thead>
                                         <tbody>
                                             <!-- start tr-->
-                                            <tr *ngFor="let sale of orders">
+                                            <tr *ngFor="let order of orders">
                                                 <!-- <td><span>
                                                         <div class="ul-widget_user-card">
                                                             <div class="ul-widget4__img"><img id="userDropdown" src="assets/dist-assets/images/faces/1.jpg" alt="" /></div>
                                                         </div>
                                                     </span></td> -->
-                                                    <td>{{sale.personaContacto}}</td>
+                                                    <td>{{order.personaContacto}}</td>
                                                 <td>11/28/2016</td>
-                                                    <td ><span [hidden]="sale.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
-                                                        <span [hidden]="sale.status!='proccess'" class="badge badge-pill badge-outline-info p-2 m-1">En proceso</span>
-                                                    </td>
+                                                    <td > 
+                                                    <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">
+                                                        <span [hidden]="order.status!='new'" class="badge badge-pill badge-outline-success p-2 m-1">Nuevo</span>
+                                                        <span [hidden]="order.status!='verificar'" class="badge badge-pill badge-outline-warning p-2 m-1">Por verificar</span>
+                                                        <span [hidden]="order.status!='proccess'" class="badge badge-pill badge-outline-info p-2 m-1">En proceso</span>
+                                                           <span [hidden]="order.status!='success'" class="badge badge-pill badge-outline-primary p-2 m-1">Concretada</span>
+                                                </a></td>
                     
 
-                                                <td>{{sale.total}}</td>
-                                                   <td>{{sale.metodo}}</td>
+                                                <td>{{order.total}}</td>
+                                                   <td>{{order.metodo}}</td>
                                             </tr>
                                             <!-- end tr-->                                       
                                         </tbody>

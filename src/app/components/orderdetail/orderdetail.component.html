@@ -2,39 +2,43 @@
      <div class="breadcrumb">
         <ul>
             <li><a routerLink="/orders" >Pedidos</a></li>
-            <li>Detalle del pedido</li>
+            <li>Detalle del pedido Nro. 
+                <span class="text-primary">
+                    {{this._uw.orderSelected.npedido}}
+                </span>
+            </li>
         </ul>
     </div>
     <div class="row">
         <div class="col-lg-4 col-xl-4  mb-4">
             <div class="card">
                 <div class="card-body">
-                  <div class="ul-widget-s6__items">            
-					<div class="ul-widget-s6__item"><span class="ul-widget-s6__badge">
+                  <div class="ul-widget-s6__items" *ngIf="this._uw.orderSelected.steeps">            
+					<div class="ul-widget-s6__item" [hidden]="this._uw.orderSelected.steeps[0].steep==false" ><span class="ul-widget-s6__badge">
 					    <p class="badge-dot-success ul-widget6__dot"></p>
-					    </span><span class="ul-widget-s6__text">Se registra un nuevo . <a class="typo_link text-info2" href="widget-list.html" > Pedido</a></span><span class="ul-widget-s6__time">4 min </span>
+					    </span><span class="ul-widget-s6__text">Se registra un nuevo . <a class="typo_link text-info2" (click)="setSteepOne()" style="cursor: pointer !important;" > Pedido</a></span><span class="ul-widget-s6__time">4 min </span>
 					</div>
-					<div class="ul-widget-s6__item"><span class="ul-widget-s6__badge">
+					<div class="ul-widget-s6__item" [hidden]="this._uw.orderSelected.steeps[1].steep==false"><span class="ul-widget-s6__badge">
 					    <p class="badge-dot-warning ul-widget6__dot"></p>
-					    </span><span class="ul-widget-s6__text">Verificación de . <a class="typo_link text-info2" href="widget-list.html" > Pago</a></span><span class="ul-widget-s6__time">1 min </span>
+					    </span><span class="ul-widget-s6__text">Verificación de . <a class="typo_link text-info2" (click)="setSteepTwo()" style="cursor: pointer !important;" > Pago</a></span><span class="ul-widget-s6__time">1 min </span>
 					</div>
-					<div class="ul-widget-s6__item"><span class="ul-widget-s6__badge">
-					    <p class="badge-dot-info ul-widget6__dot"></p>
+					<div class="ul-widget-s6__item" [hidden]="this._uw.orderSelected.steeps[2].steep==false"><span class="ul-widget-s6__badge">
+					    <p class="badge-dot-info ul-widget6__dot" (click)="setSteepThree()"></p>
 					    </span><span class="ul-widget-s6__text">En proceso </span><span class="ul-widget-s6__time">30 seg </span>
 					</div>
-					<div class="ul-widget-s6__item"><span class="ul-widget-s6__badge">
+					<div class="ul-widget-s6__item" [hidden]="this._uw.orderSelected.steeps[3].steep==false"><span class="ul-widget-s6__badge">
 					    <p class="badge-dot-primary ul-widget6__dot"></p>
 					    </span><span class="ul-widget-s6__text">Venta concretada </span><span class="ul-widget-s6__time">10 seg </span>
 					</div>                                 
                   </div>
                 </div>
                 <div class="ul-product-cart__invoice">
-                    <table class="table" *ngIf="this._uw.orderSelected">
+                    <table class="table" *ngIf="this._uw.orderSelected" >
                         <tbody >
                         	<tr >
-                        		<th class="text-16" scope="row"style="border-top: 0px;"></th >
+                        		<th class="text-13 text-right" scope="row"style="border-top: 0px;">Pedido: </th >
                         		<td class="text-16 text-success font-weight-700"style="border-top: 0px;">	
-                                    <!-- <h4 class="heading text-primary">{{this._uw.orderSelected.id}} </h4> -->
+                                    <h4 class="heading text-primary">{{this._uw.orderSelected.npedido}} </h4>
                                 </td>
                         	</tr>
                              <tr>
@@ -69,18 +73,18 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="ul-product-cart__button text-right">
-                        <button class="btn btn-warning btn-block ripple m-1" type="button" style="color: white;">Marcar pago verificado</button>
+                    <div class="ul-product-cart__button text-right" *ngIf="this._uw.orderSelected.steeps">
+                        <button class="btn btn-warning btn-block ripple m-1" type="button" style="color: white;" [hidden]="!this._uw.orderSelected.steeps[1].steep || this._uw.orderSelected.steeps[2].steep ">Marcar pago verificado</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-8 col-md-8 col-xl-8">
-            <div class="card">
+            <div class="card" [hidden]="!this._uw.new">
                 <div class="card-body">
                     <div class="ul-widget__head v-margin">
                         <div class="ul-widget__head-label">
-                            <h3 class="ul-widget__head-title">Cód. de pedido {{this._uw.orderSelected.id}}</h3>
+                            <h3 class="ul-widget__head-title text-primary">Nro. de pedido {{this._uw.orderSelected.npedido}}</h3>
                         </div>
                        <!--  <button class="btn bg-white _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span></button>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;">
@@ -90,7 +94,7 @@
                     <div class="ul-widget-body">
                         <div class="ul-widget3">
                             <div class="ul-widget6__item--table">
-						        <div class="table-responsive">
+						        <div class="table-responsive" >
 						            <table class="table">
 						                <thead>
 						                    <tr>
@@ -106,7 +110,7 @@
 						                        <td scope="row" >
 						                        	<img class="profile-picture avatar-sm mb-2 img-fluid" src="{{item.images[0]}}" alt="" />
 						                            <div class="ul-product-cart__detail d-inline-block align-middle ml-1">
-						                            	<a href="cart.html">
+						                            	<a >
 						                                	<h6 class="heading">{{item.productName}}</h6>
 						                                </a>
                                                         <!-- <span class="text-mute">{{item.presentacion}}</span> -->
@@ -115,7 +119,7 @@
 						                        <td>{{item.globalPrice}}</td>
 						                        <td>{{item.quantity}} {{item.presentacion}}</td>
 						                        <td>{{item.globalPrice*item.quantity}}</td>
-						                        <td><a href="cart.html"><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a></td>
+						                        <td><a ><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -124,6 +128,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
+             <div class="card bg-dark text-white o-hidden mb-4" [hidden]="!this._uw.pago">
+                <img class="card-img" src="{{this._uw.orderSelected.pago}}" />
+                <div class="card-img-overlay">
+                    <div class="text-center pt-4">
+                        <h5 class="card-title mb-2 text-white"></h5>
+                        <div class="separator border-top mb-2"></div>
+                        <p class="text-small font-italic"></p>
+                    </div>
+                    <div class="p-1 text-left card-footer font-weight-light d-flex">
+                   <!--      <span class="mr-3 d-flex align-items-center"><i class="i-Speach-Bubble-6 mr-1"></i> </span>
+                        <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i></span> -->
+                    </div>
+                </div>
+            </div>
+            <!-- {{this._uw.orderSelected.id}} -->
+             <div class="card text-white o-hidden mb-4" [hidden]="!this._uw.proccess">
+                <img class="card-img" style="width: 50%;" src="assets/dist-assets/images/repartidor.png" />
+              <!--   <div class="card-img-overlay">
+                    <div class="text-center pt-4">
+                        <h5 class="card-title mb-2 text-white"></h5>
+                        <div class="separator border-top mb-2"></div>
+                        <p class="text-small font-italic"></p>
+                    </div>
+                    <div class="p-1 text-left card-footer font-weight-light d-flex">
+                 
+                    </div>
+                </div> -->
             </div>
         </div>        
     </div>
