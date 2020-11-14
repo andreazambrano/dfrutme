@@ -1,8 +1,4 @@
-// import { Component, OnInit } from '@angular/core';
-
-
 import { AuthService } from '../../services/auth.service';
-// import { CardInterface } from '../../models/card-interface'; 
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { delay, map } from 'rxjs/operators';
@@ -16,14 +12,8 @@ import { Location } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { TixInterface } from '../../models/tix-interface';  
-// import { UserInterface } from '../../models/user-interface'; 
 import { UserWService } from '../../services/user-w.service';
 import { ValidationError } from '../../../assets/file-picker/src/lib/validation-error.model';
-
-
-
-
-
 
 @Component({
   selector: 'app-addproduct',
@@ -38,34 +28,16 @@ export class AddproductComponent implements OnInit {
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
    myFiles: FilePreviewModel[] = [];
 
-ngFormAddtixs: FormGroup;
+ ngFormAddtixs: FormGroup;
   submitted = false;
-
-
-
-
   constructor(
   private  http: HttpClient,
   public _uw:UserWService, 
   private dataApiService: DataApiService,
-  // private authService: AuthService, 
   private location: Location,
   private router: Router,
   private formBuilder: FormBuilder
   	) { }
-// public user : UserInterface ={
-//     name:"",
-//     email:"",
-//     password:""
-//   };
-
-  // public card : CardInterface ={
-  //     userd:"",
-  //     type:"",
-  //     phone:"",
-  //     companyName:"",
-  //     address:""
-  //   };
 
 public tix : TixInterface ={
       userd:"",
@@ -74,16 +46,13 @@ public tix : TixInterface ={
       notes:"",
       category:"categoría",
       check:[],
-      // codigo:"",
       color:"",
-      // con:[],
       colection:"",
       globalPrice:0,
       images:[],
       modelo:"",
       presentacion:"",
       new:true,
-      // sin:[],
       status:"",
       tallas:[],
       typePrice:"global"
@@ -92,8 +61,6 @@ public tix : TixInterface ={
 
     public isError = false;
     public isLogged =false;
-    // public precio = "sin";
-    // public precio2 = "con";
     public check = "check";
     public urlCreated = "";
     public images:any[]=[];
@@ -120,7 +87,6 @@ public tix : TixInterface ={
       productName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       category: ['', [Validators.required]],
-      // codigo:['', [Validators.required]],
       presentacion:[true, [Validators.required]],
       globalPrice: [0,[Validators.required]]
       });

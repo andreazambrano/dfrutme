@@ -10,7 +10,8 @@ import {
 	OrdersComponent,
 	OrderdetailComponent,
 	AddproductComponent,
-	SuccessComponent
+	SuccessComponent,
+	ListproductsComponent
 
 	}from "./components/index.paginas";
 
@@ -28,6 +29,7 @@ const app_routes: Routes = [
 	{path:'orderdetail',component:OrderdetailComponent},
 	{path:'addproduct',component:AddproductComponent},
 	{path:'success',component:SuccessComponent },
+	{path:'listproducts',component:ListproductsComponent },
 	{path:'**',pathMatch:'full',redirectTo:''}
 	];
 	export const app_routing = RouterModule.forRoot(app_routes);

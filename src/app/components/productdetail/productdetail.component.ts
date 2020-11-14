@@ -83,11 +83,6 @@ export class ProductdetailComponent implements OnInit {
           // tix => this.router.navigate(['/succesConfig'])
       );
           this.editingCostPrice=false;
-      // this.tix[0].bitcoin=tix.bitcoin;
-      // this.tixCostPrice.bitcoin=tix.bitcoin;
-      // this.editingPorcentaje=false;
-      // this.infoNew.usd=(usdPre);
-      // console.log("usd: " +usdPre);
     }
         updateBeneficio(tix){
       this.submittedBeneficio= true;
@@ -107,11 +102,7 @@ export class ProductdetailComponent implements OnInit {
           // tix => this.router.navigate(['/succesConfig'])
       );
           this.editingBeneficio=false;
-      // this.tix[0].bitcoin=tix.bitcoin;
-      // this.tixCostPrice.bitcoin=tix.bitcoin;
-      // this.editingPorcentaje=false;
-      // this.infoNew.usd=(usdPre);
-      // console.log("usd: " +usdPre);
+
     }
 
     updateStock(tix){
@@ -132,11 +123,6 @@ export class ProductdetailComponent implements OnInit {
           // tix => this.router.navigate(['/succesConfig'])
       );
           this.editingStock=false;
-      // this.tix[0].bitcoin=tix.bitcoin;
-      // this.tixCostPrice.bitcoin=tix.bitcoin;
-      // this.editingPorcentaje=false;
-      // this.infoNew.usd=(usdPre);
-      // console.log("usd: " +usdPre);
     }
     
     
@@ -158,13 +144,7 @@ export class ProductdetailComponent implements OnInit {
     this.getDetails(this.route.snapshot.paramMap.get('id'));
      if (this._uw.loaded==true){
           this.loadAPI = new Promise(resolve => {
-            // this.loadScript6();
-            // this.loadScript5();
-            // this.loadScript4();
-            // this.loadScript();
-            // this.loadScript2();
-            //  this.loadScripta();
-            // this.loadScript3();
+
            });
         }
      this._uw.loaded=true;
@@ -182,61 +162,4 @@ export class ProductdetailComponent implements OnInit {
       return this.ngFormStock.controls;
     }
 
-
-    // public loadScript() {
-    //   let node = document.createElement("script");
-    //   node.src = this.url;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
-    // public loadScript2() {
-    //   let node = document.createElement("script");
-    //   node.src = this.url2;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
-    // public loadScript3() {
-    //   let node = document.createElement("script");
-    //   node.src = this.url3;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
-    // public loadScripta() {
-    //   let node = document.createElement("script");
-    //   node.src = this.urla;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
-    //  public loadScript4() {
-    //   let node = document.createElement("script");
-    //   node.src = this.url4;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
-    //  public loadScript5() {
-    //   let node = document.createElement("script");
-    //   node.src = this.url5;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
-    //  public loadScript6() {
-    //   let node = document.createElement("script");
-    //   node.src = this.url6;
-    //   node.type = "text/javascript";
-    //   node.async = true;
-    //   node.charset = "utf-8";
-    //   document.getElementsByTagName("head")[0].appendChild(node);
-    // }
 }
