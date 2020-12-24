@@ -25,8 +25,8 @@ export class DemoFilePickerAdapter extends FilePickerAdapter {
     const form = new FormData();
     form.append('file', fileItem.file);
 
-    const api = 'http://3.129.29.75:3015/api/containers/tixsImages/upload';
-        // const api = 'http://3.129.29.75:3015/api/containers/tixsImages/upload';
+    const api = 'https://db.buckapi.com:3015/api/containers/tixsImages/upload';
+        // const api = 'https://db.buckapi.com:3015/api/containers/tixsImages/upload';
 
     const req = new HttpRequest('POST', api, form, {reportProgress: true});
     return this.http.request(req)
