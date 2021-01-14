@@ -52,6 +52,7 @@ public tix : TixInterface ={
       images:[],
       modelo:"",
       presentacion:"",
+      stockStatus: true,
       new:true,
       status:"",
       tallas:[],
@@ -108,6 +109,7 @@ public tix : TixInterface ={
       this._uw.errorFormAddtixs=false;
       this.tix = this.ngFormAddtixs.value;
       this.tix.status="activated";
+      this.tix.stockStatus=true;
       this.tix.images=this._uw.images;
       this._uw.continuar=true;
       this.dataApiService.saveTixFree(this.tix)
