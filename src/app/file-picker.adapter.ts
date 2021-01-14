@@ -36,7 +36,7 @@ export class DemoFilePickerAdapter extends FilePickerAdapter {
          this._uw.file=res.body.result.files.file;
          // console.log("Nombre: ",this._uw.file[0].name);
          // this._uw.images.push('https://db.andesproadventures.com:80/imgApiFruit/server/local-storage/tixsImages/'+this._uw.file[0].name);
-         this._uw.images.push('http://3.129.29.75:80/imgFrutme/server/local-storage/tixsImages/'+this._uw.file[0].name);
+         this._uw.images.push('https://db.buckapi.com:80/imgFrutme/server/local-storage/tixsImages/'+this._uw.file[0].name);
           return res.body.id.toString();
        
         } else if (res.type ===  HttpEventType.UploadProgress) {
