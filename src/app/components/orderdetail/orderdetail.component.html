@@ -99,9 +99,9 @@
 						                <thead>
 						                    <tr>
 						                        <th scope="col">Producto</th>
-						                        <th scope="col">Precio</th>
-						                        <th scope="col">Cantidad</th>
-						                        <th scope="col">sub-total</th>
+						                        <th scope="col">P Costo</th>
+						                        <th scope="col">P Venta</th>
+						                        <th scope="col">% Gan</th>
 						                        <th scope="col">Action</th>
 						                    </tr>
 						                </thead>
@@ -111,14 +111,14 @@
 						                        	<img class="profile-picture avatar-sm mb-2 img-fluid" src="{{item.images[0]}}" alt="" />
 						                            <div class="ul-product-cart__detail d-inline-block align-middle ml-1">
 						                            	<a >
-						                                	<h6 class="heading">{{item.productName}}</h6>
+						                                	<h6 class="heading">{{item.productName}}  ({{item.presentacion}}) x {{item.quantity}}</h6>
 						                                </a>
                                                         <!-- <span class="text-mute">{{item.presentacion}}</span> -->
 						                            </div>
 						                        </td>
-						                        <td>{{item.globalPrice}}</td>
-						                        <td>{{item.quantity}} {{item.presentacion}}</td>
-						                        <td>{{item.globalPrice*item.quantity}}</td>
+						                        <td>{{item.costPrice | number:'1.0-0'}}</td>
+						                        <td>{{item.globalPrice | number:'1.0-0'}}</td>
+						                        <td>{{((item.globalPrice/item.costPrice)-1)*100 | number:'1.0-0'}}</td>
 						                        <td><a ><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a></td>
 						                    </tr>
 						                </tbody>

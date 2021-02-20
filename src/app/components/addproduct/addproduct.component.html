@@ -79,31 +79,20 @@
 												</div>
 											</div>
 											<div class="col-md-4 col-xs-12">
-											<!-- 	<label style="text-transform: lowercase;">Categoría</label>
-												<select    id="category" formControlName="category" [(ngModel)]="tix.category"
-												[ngClass]="{ 'is-invalid': submitted && fval.category.errors }"
-												required (click)="setType()" class="nice-select" >
-													<option>Cupcakes</option>
-													<option>Tortas</option>
-													<option>Galletas</option>
-												</select> -->
-
-
-											<label class="ul-form__label" for="inputEmail13">Categoría:</label>
-			                       
-			                        		<div class="form-group mb-3">
-		                                        <select id="category" formControlName="category" [(ngModel)]="tix.category"
-												[ngClass]="{ 'is-invalid': submitted && fval.category.errors }"
-												required (click)="setType()" class="nice-select" >
-		                                            <option>bulbos</option>
-		                                            <option>frutos</option>
-		                                            <option>legumbres</option>
-		                                            <option>Tuberculos</option>
-		                                            <option>Verduras</option>
-		                                        </select>
-		                                    </div>
-
-
+											
+												<label class="ul-form__label" for="inputEmail13">Categoría:</label>
+				                       
+				                        		<div class="form-group mb-3">
+			                                        <select id="category" formControlName="category" [(ngModel)]="tix.category"
+													[ngClass]="{ 'is-invalid': submitted && fval.category.errors }"
+													required (click)="setType()" class="nice-select" >
+			                                            <option>bulbos</option>
+			                                            <option>frutos</option>
+			                                            <option>legumbres</option>
+			                                            <option>Tuberculos</option>
+			                                            <option>Verduras</option>
+			                                        </select>
+			                                    </div>
 
 												<div *ngIf="submitted && fval.category.errors" class="invalid-feedback">
 													<div *ngIf="fval.category.errors.required" class="errorLabel">
@@ -111,6 +100,40 @@
 													</div>
 												</div>
 											</div>	
+
+
+											<div class="col-md-4 col-xs-12">
+											
+												<label class="ul-form__label"for="inputEmail13">Categoría Super:</label>
+				                       
+				                        		<div class="form-group mb-3">
+			                                        <select id="categorysuper" formControlName="categorysuper" [(ngModel)]="tix.categorysuper"
+													[ngClass]="{ 'is-invalid': submitted && fval.categorysuper.errors }"
+													required (click)="setType()" class="nice-select" >
+			                                            <option>hortalizas</option>
+			                                            <option>carnes</option>
+			                                            <option>viveres</option>
+			                                            <option>bebidas</option>
+			                                            <option>panaderia</option>
+														<option>postres</option>
+														<option>limpieza</option>
+														<option>lacteos</option>
+														<option>aseopersonal</option>
+														<option>mascotas</option>
+
+			                                        </select>
+			                                    </div>
+
+												<div *ngIf="submitted && fval.categorysuper.errors" class="invalid-feedback">
+													<div *ngIf="fval.categorysuper.errors.required" class="errorLabel">
+													* La categoria Super es requerida
+													</div>
+												</div>
+											</div>	
+
+
+
+
 											<div class="col-md-12 col-xs-12">
 												<div class="form-group">
 													<input type="text" class="form-control" id="notes" placeholder="Información extra" [(ngModel)]="tix.notes" [ngModelOptions]="{standalone: true}"

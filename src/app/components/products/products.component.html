@@ -52,7 +52,16 @@
 
                                     <!-- <del class="text-secondary">$54.00</del> -->
                                 </p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges"><span class="badge badge-success" style="font-size: 1rem;">Disponible</span></p>
+                                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
+                                    <label class="switch pr-5 switch-success mr-3" [hidden]="!tix.stockStatus">
+                                        <span style="color: green;">Active</span>
+                                        <input type="checkbox" checked="checked" /><span class="slider"></span>
+                                    </label>
+                                    <label class="switch pr-5 switch-success mr-3" [hidden]="!tix.stockStatus">
+                                        <span style="color: red;">Inactive</span>
+                                        <input type="checkbox" checked="false" /><span class="slider"></span>
+                                    </label>
+                                </p>
                             </div>
                         </div>
                     </div>

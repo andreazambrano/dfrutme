@@ -8,6 +8,7 @@ export interface TixInterface{
 	cantD?:number;
 	capacidad?:number;
 	category?:string;
+	categorysuper?:string;
 	categoryFilter?:string;
 	check?:Array<boolean>;
 	codigo?:string;
@@ -27,6 +28,7 @@ export interface TixInterface{
 	modelo?:string;
 	new?:boolean;
 	notes?:string;
+	oncart?:boolean;
 	presentacion?:string;
 	precio?:number;
 	price?:number;

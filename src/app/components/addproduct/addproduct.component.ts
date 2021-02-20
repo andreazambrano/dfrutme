@@ -45,6 +45,7 @@ public tix : TixInterface ={
       description:"",
       notes:"",
       category:"categoría",
+      categorysuper:"categoría super",
       check:[],
       color:"",
       colection:"",
@@ -88,6 +89,7 @@ public tix : TixInterface ={
       productName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       category: ['', [Validators.required]],
+       categorysuper: ['', [Validators.required]],
       presentacion:[true, [Validators.required]],
       globalPrice: [0,[Validators.required]]
       });
@@ -109,6 +111,8 @@ public tix : TixInterface ={
       this._uw.errorFormAddtixs=false;
       this.tix = this.ngFormAddtixs.value;
       this.tix.status="activated";
+      this.tix.quantity=0;
+      this.tix.oncart=false;
       this.tix.stockStatus=true;
       this.tix.images=this._uw.images;
       this._uw.continuar=true;
