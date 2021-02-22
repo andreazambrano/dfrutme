@@ -8,7 +8,7 @@ export interface TixInterface{
 	cantD?:number;
 	capacidad?:number;
 	category?:string;
-	categorysuper?:string;
+	categorySuper?:string;
 	categoryFilter?:string;
 	check?:Array<boolean>;
 	codigo?:string;
@@ -23,6 +23,7 @@ export interface TixInterface{
 	disponibilidad?:string;
 	distancia?:string;
 	duracion?:string;
+	finalcostPrice?:number;
 	globalPrice?:number;
 	images?:Array<string>;
 	modelo?:string;

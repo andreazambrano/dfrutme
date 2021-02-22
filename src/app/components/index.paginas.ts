@@ -7,6 +7,7 @@ export { FooterComponent } from "./footer/footer.component";
 export { ConfigComponent } from "./config/config.component";
 export { OrdersComponent } from "./orders/orders.component";
 export { OrderdetailComponent } from "./orderdetail/orderdetail.component";
+export { FullorderdetailComponent } from "./fullorderdetail/fullorderdetail.component";
 export { AddproductComponent } from "./addproduct/addproduct.component";
 export { SuccessComponent } from "./success/success.component";
 export { ListproductsComponent } from "./listproducts/listproducts.component";

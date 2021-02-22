@@ -50,6 +50,7 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
 import { SuccessComponent } from './components/success/success.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ListproductsComponent } from './components/listproducts/listproducts.component';
+import { FullorderdetailComponent } from './components/fullorderdetail/fullorderdetail.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ListproductsComponent } from './components/listproducts/listproducts.co
     SuccessComponent,
     AdminComponent,
     ListproductsComponent,
+    FullorderdetailComponent,
   
   ],
   imports: [

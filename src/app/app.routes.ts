@@ -9,6 +9,7 @@ import {
 	ConfigComponent,
 	OrdersComponent,
 	OrderdetailComponent,
+	FullorderdetailComponent,
 	AddproductComponent,
 	SuccessComponent,
 	ListproductsComponent
@@ -27,6 +28,7 @@ const app_routes: Routes = [
 	{path:'sidenav',component:SidenavComponent},
 	{path:'orders',component:OrdersComponent},
 	{path:'orderdetail',component:OrderdetailComponent},
+	{path:'fullorderdetail',component:FullorderdetailComponent},
 	{path:'addproduct',component:AddproductComponent},
 	{path:'success',component:SuccessComponent },
 	{path:'listproducts',component:ListproductsComponent },

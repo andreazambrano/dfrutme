@@ -95,14 +95,14 @@
                         <div class="ul-widget3">
                             <div class="ul-widget6__item--table">
 						        <div class="table-responsive" >
-						            <table class="table">
+						           <table class="display table  " id="deafult_ordering_table" style="width:100%">
 						                <thead>
 						                    <tr>
 						                        <th scope="col">Producto</th>
 						                        <th scope="col">P Costo</th>
 						                        <th scope="col">P Venta</th>
 						                        <th scope="col">% Gan</th>
-						                        <th scope="col">Action</th>
+						                        <th scope="col">Ben total</th>
 						                    </tr>
 						                </thead>
 						                <tbody>
@@ -119,7 +119,11 @@
 						                        <td>{{item.costPrice | number:'1.0-0'}}</td>
 						                        <td>{{item.globalPrice | number:'1.0-0'}}</td>
 						                        <td>{{((item.globalPrice/item.costPrice)-1)*100 | number:'1.0-0'}}</td>
-						                        <td><a ><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a></td>
+						                        <td>
+
+                                                    {{(item.globalPrice-item.costPrice)*item.quantity | number:'1.0-0'}}
+                                                   <!--  <a ><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a> -->
+                                                </td>
 						                    </tr>
 						                </tbody>
 						            </table>

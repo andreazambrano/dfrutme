@@ -45,7 +45,7 @@ public tix : TixInterface ={
       description:"",
       notes:"",
       category:"categoría",
-      categorysuper:"categoría super",
+      categorySuper:"categoría super",
       check:[],
       color:"",
       colection:"",
@@ -89,7 +89,7 @@ public tix : TixInterface ={
       productName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       category: ['', [Validators.required]],
-       categorysuper: ['', [Validators.required]],
+       categorySuper: ['', [Validators.required]],
       presentacion:[true, [Validators.required]],
       globalPrice: [0,[Validators.required]]
       });

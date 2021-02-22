@@ -59,5 +59,12 @@ export class OrdersComponent implements OnInit {
     this._uw.indice=indice;
     this.router.navigate(['/orderdetail']);
   }
+    setIdfull(order,indice,tamano){
+    this._uw.orderSelected=order;
+    this._uw.idSelected=order.id;
+    this._uw.tamano=tamano;
+    this._uw.indice=indice;
+    this.router.navigate(['/fullorderdetail']);
+  }
 
 }

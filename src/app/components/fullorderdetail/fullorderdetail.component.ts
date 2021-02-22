@@ -9,11 +9,11 @@ import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 import { isError } from "util";
 
 @Component({
-  selector: 'app-orderdetail',
-  templateUrl: './orderdetail.component.html',
-  styleUrls: ['./orderdetail.component.css']
+  selector: 'app-fullorderdetail',
+  templateUrl: './fullorderdetail.component.html',
+  styleUrls: ['./fullorderdetail.component.css']
 })
-export class OrderdetailComponent implements OnInit {
+export class FullorderdetailComponent implements OnInit {
 
   constructor(
       public _uw:UserWService,
@@ -22,7 +22,7 @@ export class OrderdetailComponent implements OnInit {
       private route:ActivatedRoute,
       public router: Router,
       private formBuilder: FormBuilder
-  	) { }
+    ) { }
   public orders:OrderInterface;
   public order:OrderInterface;  
   loadAPI = null;  
@@ -95,6 +95,7 @@ export class OrderdetailComponent implements OnInit {
 
   ngOnInit() {
       // this.onCheckUser();
+       this.setSteepOne();
      if (this._uw.loaded==true){
           this.loadAPI = new Promise(resolve => {
             this.loadScript();
@@ -103,7 +104,7 @@ export class OrderdetailComponent implements OnInit {
            });
         }
      this._uw.loaded=true;
-    this.getOrders();  	   
+    this.getOrders();      
     if (this._uw.idSelected != undefined ){
       this.getDetails(this._uw.idSelected);
     }

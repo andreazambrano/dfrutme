@@ -107,8 +107,8 @@
 												<label class="ul-form__label"for="inputEmail13">Categoría Super:</label>
 				                       
 				                        		<div class="form-group mb-3">
-			                                        <select id="categorysuper" formControlName="categorysuper" [(ngModel)]="tix.categorysuper"
-													[ngClass]="{ 'is-invalid': submitted && fval.categorysuper.errors }"
+			                                        <select id="categorySuper" formControlName="categorySuper" [(ngModel)]="tix.categorySuper"
+													[ngClass]="{ 'is-invalid': submitted && fval.categorySuper.errors }"
 													required (click)="setType()" class="nice-select" >
 			                                            <option>hortalizas</option>
 			                                            <option>carnes</option>
@@ -124,8 +124,8 @@
 			                                        </select>
 			                                    </div>
 
-												<div *ngIf="submitted && fval.categorysuper.errors" class="invalid-feedback">
-													<div *ngIf="fval.categorysuper.errors.required" class="errorLabel">
+												<div *ngIf="submitted && fval.categorySuper.errors" class="invalid-feedback">
+													<div *ngIf="fval.categorySuper.errors.required" class="errorLabel">
 													* La categoria Super es requerida
 													</div>
 												</div>
