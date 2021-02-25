@@ -14,6 +14,7 @@ export class UserWService {
 	book:any={};
 	bookToCancel:any={};
 	botas:boolean=false;
+		categorySelected:string;
 	car:any[]=[];
 	card:any={};
 	cardsResult:any[]=[];
@@ -59,6 +60,7 @@ export class UserWService {
 	selectorA:boolean;
 	selectorB:boolean;
 	sigPedido:string;
+	showAll:boolean=false;
 	steepOrderOne=true;
 	steepOrderTwo=false;
 	steepOrderThree=false;

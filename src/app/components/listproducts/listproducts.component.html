@@ -3,7 +3,7 @@
                             <div class="card-body">
                                 <div class="ul-widget__head v-margin">
                                     <div class="ul-widget__head-label">
-                                        <h3 class="ul-widget__head-title">Exclusive datatable plugin</h3>
+                                        <h3 class="ul-widget__head-title">Listado de productos</h3>
                                     </div>
                                     <button class="btn bg-white _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span></button>
                                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;"><a class="dropdown-item" href="dashboard4.html#">Action</a><a class="dropdown-item" href="dashboard4.html#">Another action</a><a class="dropdown-item" href="dashboard4.html#">Something else here</a>
@@ -13,37 +13,47 @@
                                 <div class="ul-widget-body">
                                     <div class="ul-widget3">
                                         <div class="ul-widget6__item--table">
-                                            <table class="table">
+                                            <table class="display table  " id="deafult_ordering_table" style="width:100%">
                                                 <thead>
                                                     <tr class="ul-widget6__tr--sticky-th">
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Company</th>
-                                                        <th scope="col">Date</th>
+                                                
+                                                        <th scope="col">Nombre</th>
+                                                        <th scope="col">precioCosto</th>
+                                                         <th scope="col">precioVenta</th>
+                                                         <th scope="col">%gan</th>
                                                         <th scope="col">Status</th>
-                                                        <th scope="col">Managed By</th>
                                                         <th scope="col">Actions</th>
+                                                            <th scope="col">.</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <!-- start tr-->
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <label class="checkbox checkbox-outline-info">
-                                                                <input type="checkbox" checked="" /><span class="checkmark"></span>
-                                                            </label>
-                                                        </th>
+                                                    <tr *ngFor="let tix of tixs;  index as i">
+                                                       
                                                         <td><span>
                                                                 <div class="ul-widget_user-card">
-                                                                    <div class="ul-widget4__img"><img id="userDropdown" src="../../dist-assets/images/faces/1.jpg" alt="" /></div>
+                                                                    <div class="ul-widget4__img"><img id="userDropdown" src="{{tix.images[0]}}" alt="" />
+                                                                        {{tix.productName}}
+                                                                    </div>
                                                                 </div>
                                                             </span></td>
-                                                        <td>11/28/2016</td>
-                                                        <td><span class="badge badge-pill badge-outline-danger p-2 m-1">Processing</span></td>
-                                                        <td><a class="ul-widget4__title d-block" href="dashboard4.html">UI Lib</a><span>Angular 2,Vue.js </span></td>
+                                                        <td>{{tix.costPrice | number:'1.0-0'}}    <button class="btn btn-primary btn-block" id="with-input" type="button">edit</button></td>
+                                                         <td>{{tix.globalPrice | number:'1.0-0'}}</td>
+                                                         <td>{{((tix.globalPrice/tix.costPrice)-1)*100 | number:'1.0-0'}}</td>
+                                                        <td [hidden]="!tix.stockStatus"><span style="color: green; font-weight: 600;">Active</span></td>
+                                                        <td [hidden]="tix.stockStatus"><span style="color: red; font-weight: 600;">Inactive</span></td>
+                                                      <!--   <td><a class="ul-widget4__title d-block" href="dashboard4.html">UI Lib</a><span>Angular 2,Vue.js </span></td> -->
                                                         <td>
                                                             <button class="btn bg-white _r_btn border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span><span class="_dot _inline-dot bg-primary"></span></button>
-                                                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;"><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Bar-Chart-4"> </i> Export</a><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Data-Save"> </i> Save</a><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Duplicate-Layer"></i> Import</a>
-                                                                <div class="dropdown-divider"></div><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Folder-Download"></i> Update</a><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Gears-2"></i> Customize</a>
+                                                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 33px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                                <a class="dropdown-item ul-widget__link--font" (click)="enable(tix)"  [hidden]="tix.stockStatus"> Enable</a>
+                                                                <a class="dropdown-item ul-widget__link--font" (click)="disable(tix)"  [hidden]="!tix.stockStatus"> Disable</a>
+
+                                                                <a class="dropdown-item ul-widget__link--font"  routerLink="/productdetail/{{tix.id}}">Details</a>
+
+                                                              <!--   <a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Duplicate-Layer"></i> Import</a>
+                                                                <div class="dropdown-divider"></div><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Folder-Download"></i> Update</a><a class="dropdown-item ul-widget__link--font" href="dashboard4.html#"><i class="i-Gears-2"></i> Customize</a> -->
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -52,15 +62,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <nav aria-label="Page navigation example">
-                                            <ul class="pagination">
-                                                <li class="page-item"><a class="page-link" href="dashboard4.html#">Previous</a></li>
-                                                <li class="page-item"><a class="page-link" href="dashboard4.html#">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="dashboard4.html#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="dashboard4.html#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="dashboard4.html#">Next</a></li>
-                                            </ul>
-                                        </nav>
+                                       
                                     </div>
                                 </div>
                             </div>

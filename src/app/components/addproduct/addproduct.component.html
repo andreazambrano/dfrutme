@@ -78,34 +78,11 @@
 													>
 												</div>
 											</div>
-											<div class="col-md-4 col-xs-12">
 											
-												<label class="ul-form__label" for="inputEmail13">Categoría:</label>
-				                       
-				                        		<div class="form-group mb-3">
-			                                        <select id="category" formControlName="category" [(ngModel)]="tix.category"
-													[ngClass]="{ 'is-invalid': submitted && fval.category.errors }"
-													required (click)="setType()" class="nice-select" >
-			                                            <option>bulbos</option>
-			                                            <option>frutos</option>
-			                                            <option>legumbres</option>
-			                                            <option>Tuberculos</option>
-			                                            <option>Verduras</option>
-			                                        </select>
-			                                    </div>
-
-												<div *ngIf="submitted && fval.category.errors" class="invalid-feedback">
-													<div *ngIf="fval.category.errors.required" class="errorLabel">
-													* La categoria es requerida
-													</div>
-												</div>
-											</div>	
 
 
 											<div class="col-md-4 col-xs-12">
-											
 												<label class="ul-form__label"for="inputEmail13">Categoría Super:</label>
-				                       
 				                        		<div class="form-group mb-3">
 			                                        <select id="categorySuper" formControlName="categorySuper" [(ngModel)]="tix.categorySuper"
 													[ngClass]="{ 'is-invalid': submitted && fval.categorySuper.errors }"
@@ -120,13 +97,34 @@
 														<option>lacteos</option>
 														<option>aseopersonal</option>
 														<option>mascotas</option>
-
 			                                        </select>
 			                                    </div>
-
 												<div *ngIf="submitted && fval.categorySuper.errors" class="invalid-feedback">
 													<div *ngIf="fval.categorySuper.errors.required" class="errorLabel">
 													* La categoria Super es requerida
+													</div>
+												</div>
+											</div>	
+
+
+
+
+											<div class="col-md-4 col-xs-12" [hidden]="tix.categorySuper!='hortalizas'">	
+												<label class="ul-form__label" for="inputEmail13">Tipo de hortaliza</label>
+				                        		<div class="form-group mb-3">
+			                                        <select id="category" formControlName="category" [(ngModel)]="tix.category"
+													[ngClass]="{ 'is-invalid': submitted && fval.category.errors }"
+													required (click)="setType()" class="nice-select" >
+			                                            <option>bulbos</option>
+			                                            <option>frutos</option>
+			                                            <option>legumbres</option>
+			                                            <option>Tuberculos</option>
+			                                            <option>Verduras</option>
+			                                        </select>
+			                                    </div>
+												<div *ngIf="submitted && fval.category.errors" class="invalid-feedback">
+													<div *ngIf="fval.category.errors.required" class="errorLabel">
+													* La categoria es requerida
 													</div>
 												</div>
 											</div>	

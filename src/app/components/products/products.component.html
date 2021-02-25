@@ -12,12 +12,18 @@
                     {{this.mostrar}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" (click)="getBulbos()"  style="cursor: pointer !important;">Bulbos</a>
-                    <a class="dropdown-item" (click)="getFrutos()"  style="cursor: pointer !important;">Frutos</a>
-                    <a class="dropdown-item" (click)="getLegumbres()"  style="cursor: pointer !important;">Legumbres</a>
-                    <a class="dropdown-item" (click)="getTuberculos()"  style="cursor: pointer !important;">Tubérculos</a>
-                    <a class="dropdown-item" (click)="getVerduras()"  style="cursor: pointer !important;">Verduras</a>
-                    <a class="dropdown-item" (click)="getAllTixs()"  style="cursor: pointer !important;">Todos</a>
+                    <a class="dropdown-item" (click)="setType('hortalizas')"  style="cursor: pointer !important;">Hortalizas</a>
+                    <a class="dropdown-item" (click)="setType('carnes')"  style="cursor: pointer !important;">Carnes</a>
+                    <a class="dropdown-item" (click)="setType('viveres')"  style="cursor: pointer !important;">Víveres</a>
+                    <a class="dropdown-item" (click)="setType('lacteos')"  style="cursor: pointer !important;">Lácteos</a>
+                    <a class="dropdown-item" (click)="setType('bebidas')"  style="cursor: pointer !important;">Bebidas</a>
+                    <a class="dropdown-item" (click)="setType('postres')"  style="cursor: pointer !important;">Postres</a>
+                    <a class="dropdown-item" (click)="setType('limpieza')"  style="cursor: pointer !important;">Limpieza</a>
+                    <a class="dropdown-item" (click)="setType('panaderia')"  style="cursor: pointer !important;">Panaderia</a>
+                    <a class="dropdown-item" (click)="setType('aseopersonal')"  style="cursor: pointer !important;">AseoPersonal</a>
+                    <a class="dropdown-item" (click)="setType('mascotas')"  style="cursor: pointer !important;">Mascotas</a>
+                    <!-- <a class="dropdown-item" (click)="setType()"  style="cursor: pointer !important;">Todos</a> -->
+                  
                 </div>
             </div>
         </div>
@@ -29,17 +35,16 @@
 
     <div class="product-cart">
         <div class="row list-grid">
-            <div class="list-item col-md-3" *ngFor="let tix of tixs; index as i" >
-                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
-                    <label class="switch pr-5 switch-success mr-3" [hidden]="!tix.stockStatus">
-                        <span style="color: green;"></span>
-                        <input type="checkbox" checked="checked" ngModel="tix.stockStatus"  [ngModelOptions]="{standalone: true}" /><span class="slider"></span>
-                    </label>
-                </p>
-                <a  routerLink="/productdetail/{{tix.id}}" >
+            <div class="list-item col-md-3" *ngFor="let tix of tixs; index as i" [hidden]="this._uw.categorySelected!=tix.categorySuper && !this._uw.showAll" >
+           
+                <a   >
                     <div class="card o-hidden mb-4 d-flex flex-column">
-                        <div class="list-thumb d-flex"><img alt="" src="{{tix.images[0]}}" /></div>
-                        <div class="flex-grow-1 d-bock">
+                      
+                        
+                        <div class="list-thumb d-flex" routerLink="/productdetail/{{tix.id}}"><img alt="" src="{{tix.images[0]}}" />
+
+                        </div>
+                        <div class="flex-grow-1 d-bock" routerLink="/productdetail/{{tix.id}}">
                             <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center"><a class="w-40 w-sm-100" href="product.html">
                                     <div class="item-title" style="font-size: 1rem;">
                                         {{tix.productName}}

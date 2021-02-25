@@ -39,6 +39,12 @@ export class ProductsComponent implements OnInit {
         }
      });
   }
+  setType(parametro:string){
+    this._uw.showAll=false;
+    this.mostrar=parametro;
+    this._uw.categorySelected=parametro;
+
+  }
   getAllTixs(){
     this.mostrar="Todos";
     this.dataApi
@@ -115,6 +121,8 @@ export class ProductsComponent implements OnInit {
    
 
   ngOnInit() {
+    this._uw.showAll=true;
+    this.mostrar='Todos';
 if (this._uw.loadedInfo==true){
         this.loadInfo();
         }
