@@ -71,7 +71,7 @@ export class ConfigComponent implements OnInit {
         });
       this.ngFormAddress= this.formBuilder.group({
         bitcoinaddress: ['', [Validators.required]],
-         bzelleaddress: ['', [Validators.required]],
+         zelleaddress: ['', [Validators.required]],
         paypaladdress: ['', [Validators.required]]
         });
     }
