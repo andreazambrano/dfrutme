@@ -71,6 +71,7 @@ export class ConfigComponent implements OnInit {
         });
       this.ngFormAddress= this.formBuilder.group({
         bitcoinaddress: ['', [Validators.required]],
+         bzelleaddress: ['', [Validators.required]],
         paypaladdress: ['', [Validators.required]]
         });
     }
@@ -141,6 +142,7 @@ export class ConfigComponent implements OnInit {
       this.infoAddress.usd=(1/usdPre);
       this.infoAddress.bitcoinaddress =(info.bitcoinaddress);
       this.infoAddress.paypaladdress = (info.paypaladdress);
+      this.infoAddress.zelleaddress = (info.zelleaddress);
       let id = this._uw.info[0].id;
       this.dataApi.updateAddress(this.infoAddress, id)
         .subscribe(

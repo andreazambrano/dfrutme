@@ -8,6 +8,7 @@ export interface InfoInterface {
 	colp?:number;
 	bitcoinaddress?:string;
 	paypaladdress?:string;
+	zelleaddress?:string;
 	bitcoin?:number;
 	paypal?:number;
 }
