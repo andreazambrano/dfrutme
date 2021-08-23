@@ -48,7 +48,7 @@
                 <div class="col" *ngIf="this._uw.info[0]" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp || router.url.includes('/config')">
                     <div class="dropdown" >
                         <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }}) 
+                           USD ({{1/this._uw.info[0].usd /1000 |  number:'1.0-0' }}) 
                         </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" (click)=setBs()> Bs.S.</a>
                             <a class="dropdown-item" (click)=setColp()>COLP (Bs.S. {{this._uw.info[0].colp}})</a>

@@ -64,7 +64,7 @@ export class OrdersComponent implements OnInit {
     this._uw.idSelected=order.id;
     this._uw.tamano=tamano;
     this._uw.indice=indice;
-    this.router.navigate(['/fullorderdetail']);
+    this.router.navigate(['/miniorder']);
   }
 
 }

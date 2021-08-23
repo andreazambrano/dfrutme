@@ -99,6 +99,12 @@ export class DataApiService {
 		this.order = this.http.get(url_api);
 		return (this.order);
 	}
+	getOrderByN(id:string){
+		let indice = id;
+		const url_api=`https://db.buckapi.com:3025/api/order/${indice}`;
+		this.order = this.http.get(url_api);
+		return (this.order);
+	}
 	updateCurrency(info :InfoInterface, id: string){
 		// let token = this.authService.getToken();
 		const url_api=`https://db.buckapi.com:3025/api/infos/${id}`;
@@ -142,5 +148,13 @@ export class DataApiService {
 		.pipe(map(data => data));
 	}
 
+	getOrderByNpedido(npedido: string){
+		const url_api = `https://db.buckapi.com:3025/api/order?filter[where][npedido]=${npedido}`;
+		this.order = this.http.get(url_api);
+		return (this.order);
 
+		// return this.http.get(url_api);
+
+		// return this.http.get(url_api);
+	}
 }
