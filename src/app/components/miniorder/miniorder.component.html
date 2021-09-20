@@ -37,8 +37,8 @@
 						                    </tr>
 						                </thead>
 						                <tbody>
-						                    <tr *ngFor="let item of this._uw.orderSelected.car;  index as i" >
-						                        <td scope="row" >
+						                    <tr *ngFor="let item of this._uw.orderSelected.car;  index as i"  >
+						                        <td scope="row"[hidden]="editing && i==indice" (click)="editar(i)">
 						                        	<img class="profile-picture avatar-sm mb-2 img-fluid" src="{{item.images[0]}}" alt="" />
 						                            <div class="ul-product-cart__detail d-inline-block align-middle ml-1">
 						                            	<a>
@@ -47,10 +47,25 @@
 						                                </a>
 						                            </div>
 						                        </td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">{{(item.costPrice /1000 ) | number:'1.0-0'}}</td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">{{(item.globalPrice /1000)  | number:'1.0-0'}}</td>
-						                         <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">{{(item.costPrice /1000 )*(this._uw.currency*1000) | number:'1.0-2'}}</td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">{{(item.globalPrice /1000)*(this._uw.currency*1000)  | number:'1.0-2'}}</td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp ||  this._uw.currency==this._uw.info[0].usd ||editing && i==indice ">{{(item.costPrice /1000 ) | number:'1.0-0'}}</td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd ||editing  && i==indice" >{{(item.globalPrice /1000)  | number:'1.0-0'}}</td>
+						                         <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ||editing && i==indice" >{{(item.costPrice /1000 )*(this._uw.currency*1000) | number:'1.0-2'}}</td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ||editing && i==indice">{{(item.globalPrice /1000)*(this._uw.currency*1000)  | number:'1.0-2'}}</td>
+
+						                        <td [hidden]="!editing  && i==indice " colspan="3">
+						                        	
+					                        	<form  class=""[formGroup]="ngFormAddtixs" (ngSubmit) ="sendTix(i)" >
+					                        		<div class="col-md-3 col-xs-12"  >
+														<div class="form-group">
+															<label for="finalcostPrice" style="text-transform: none;">Precio costo</label>
+															<input type="number" class="form-control" id="finalcostPrice" formControlName="finalcostPrice" 
+												placeholder="Precio" 
+												>
+												 <button class="btn btn-primary m-1" type="button" (click)="sendTix()"  >Guardar</button>
+														</div>
+													</div>
+					                        	</form>
+						                        </td>
 						                        
 						                    </tr>
 						                </tbody>

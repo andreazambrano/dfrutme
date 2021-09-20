@@ -15,6 +15,8 @@ import { isError } from "util";
 })
 export class MiniorderComponent implements OnInit {
 
+ ngFormAddtixs: FormGroup;
+  submitted = false;
   constructor(
       public _uw:UserWService,
       private dataApi: DataApiService,
@@ -26,6 +28,8 @@ export class MiniorderComponent implements OnInit {
   public orders:OrderInterface;
   public order:OrderInterface;  
   total = 0;  
+  indice = 0;  
+  editing=false;
   totalVentas = 0;  
   loadAPI = null;  
   url = "assets/dist-assets/js/scripts/dashboard.v1.script.min.js";
@@ -94,6 +98,21 @@ export class MiniorderComponent implements OnInit {
 
   // this._uw.verificar=true;
   }
+  editar(i){
+  	this.editing=true;
+  	this.indice=i;
+  	console.log("i: " +i);
+  }
+  sendTix(i){
+  	this.editing=false;
+//  	console.log("dato:"+this.ngFormAddtixs.value.finalcostPrice);
+
+  	this._uw.orderSelected.car[i].finalcostPrice=this.ngFormAddtixs.value.finalcostPrice;
+  	      this.dataApi.updateTixFinalCostPrice(this._uw.orderSelected,this._uw.idSelected )
+        .subscribe(
+          // tix => this.router.navigate(['/succesConfig'])
+      );
+  }
   totalCosto(){
   	for(let i = 0 ; i < this._uw.orderSelected.car.length;i++){
   		this.total=this.total+(this._uw.orderSelected.car[i].costPrice*this._uw.orderSelected.car[i].quantity);
@@ -106,6 +125,9 @@ export class MiniorderComponent implements OnInit {
   }
 
   ngOnInit() {
+  	    this.ngFormAddtixs = this.formBuilder.group({
+      finalcostPrice: ['', [Validators.required]]
+      });
       // this.onCheckUser();
        this.setSteepOne();
      if (this._uw.loaded==true){
