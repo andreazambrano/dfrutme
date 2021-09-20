@@ -31,6 +31,7 @@ export class MiniorderComponent implements OnInit {
   indice = 0;  
   editing=false;
   totalVentas = 0;  
+  ahorro = 0;  
   product = "";  
   loadAPI = null;  
   url = "assets/dist-assets/js/scripts/dashboard.v1.script.min.js";
@@ -104,16 +105,33 @@ export class MiniorderComponent implements OnInit {
     this.product=this._uw.orderSelected.car[i].productName;
   	this.indice=i;
   	console.log("i: " +i);
+    this.ahorroCalc();
+  }
+
+  ahorroCalc(){
+    this.ahorro=0;
+    for(let i=0;i<this._uw.orderSelected.car.length;i++){
+      if(this._uw.orderSelected.car[i].finalcostPrice!=undefined){
+
+        this.ahorro=(this.ahorro+((this._uw.orderSelected.car[i].costPrice-(this._uw.orderSelected.car[i].finalcostPrice*1000))*this._uw.orderSelected.car[i].quantity));
+        // this.ahorro=this.ahorro+((this._uw.orderSelected.car[i].costPrice*this._uw.orderSelected.car[i].quantity)-((this._uw.orderSelected.car[i].finalcostPrice*1000)*this._uw.orderSelected.car[i].quantity));
+
+      }
+
+    }
+
+     console.log("si entra y el ahorro es:" +this.ahorro); 
   }
   sendTix(){
   	this.editing=false;
 //  	console.log("dato:"+this.ngFormAddtixs.value.finalcostPrice);
 
   	this._uw.orderSelected.car[this.indice].finalcostPrice=this.ngFormAddtixs.value.finalcostPrice;
-  	      this.dataApi.updateTixFinalCostPrice(this._uw.orderSelected,this._uw.idSelected )
+  	      this.dataApi.updateOrderFinalCostPrice(this._uw.orderSelected,this._uw.idSelected )
         .subscribe(
           // tix => this.router.navigate(['/succesConfig'])
       );
+        this.ahorroCalc();
   }
   totalCosto(){
   	for(let i = 0 ; i < this._uw.orderSelected.car.length;i++){
@@ -161,5 +179,6 @@ export class MiniorderComponent implements OnInit {
     this.dataApi.getOrderById(id).subscribe(order => (this._uw.orderSelected = order));
 this.totalCosto();
 this.totalVenta();
+this.ahorroCalc();
   }
 }

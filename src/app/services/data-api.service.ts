@@ -133,11 +133,11 @@ export class DataApiService {
 		.put<TixInterface>(url_api, tix)
 		.pipe(map(data => data));
 	}
-	updateTixFinalCostPrice(tix :TixInterface, id: string){
+	updateOrderFinalCostPrice(order :OrderInterface, id: string){
 		// let token = this.authService.getToken();
-		const url_api=`https://db.buckapi.com:3025/api/tixes/${id}`;
+		const url_api=`https://db.buckapi.com:3025/api/order/${id}`;
 		return this.http
-		.put<TixInterface>(url_api, tix)
+		.put<OrderInterface>(url_api, order)
 		.pipe(map(data => data));
 	}
 	updateTixBeneficio(tix :TixInterface, id: string){
