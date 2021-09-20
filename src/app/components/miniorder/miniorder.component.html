@@ -32,16 +32,26 @@
                             </h3>
                              <h3 class="ul-widget__head-title text-succes">Ahorro  
                                 <span class="text-success"   [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">
-                                $ {{ahorro *this._uw.currency  | number:'1.0-0'}} 
+                                $ {{(ahorro *this._uw.currency )/1000 | number:'1.0-0'}} 
                                 </span>
                                  <span class="text-success"   [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">
-                                $ {{ahorro *this._uw.currency  | number:'1.0-2'}} 
+                                $ {{(ahorro *this._uw.currency)  | number:'1.0-2'}} 
                                 </span>
 
                            
                             </h3>
 
-                            
+                             <h3 class="ul-widget__head-title text-succes" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Beneficio  
+      <span class="text-success" >
+                                VES {{((totalVentas/1000)- (total/1000)) + (ahorro/1000 *this._uw.currency ) | number:'1.0-0'  }}
+                           </span>
+                            </h3>
+                             <h3 class="ul-widget__head-title text-succes" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Beneficio  
+      <span class="text-success" >
+                                $ {{(((totalVentas/1000)*(this._uw.currency*1000))- ((total/1000)*(this._uw.currency*1000) )) + ((ahorro) *this._uw.currency ) | number:'1.0-2'  }}
+                           </span>
+                            </h3>
+
                             <form  class=""[formGroup]="ngFormAddtixs" (ngSubmit) ="sendTix()" >
                                 <div class="col-md-12 col-xs-12"  [hidden]="!editing">
                                     <div class="form-group">
