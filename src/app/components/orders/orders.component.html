@@ -31,7 +31,7 @@
                                     </thead>
                                     <tbody *ngIf="orders">
                                         <!-- start tr-->
-                                        <tr *ngFor="let order of orders; index as i" >
+                                        <tr *ngFor="let order of orders; index as i" [hidden]="order.status!='new'">
                                            
                                             <td> <a (click)="setId(order,i,this._uw.tamano)" style="cursor: pointer !important; ">{{order.npedido}}</a></td>
                                                   <td><a (click)="setIdfull(order,i,this._uw.tamano)" style="cursor: pointer !important; ">{{order.personaContacto}}</a></td>
