@@ -31,6 +31,7 @@ export class MiniorderComponent implements OnInit {
   indice = 0;  
   editing=false;
   totalVentas = 0;  
+  product = "";  
   loadAPI = null;  
   url = "assets/dist-assets/js/scripts/dashboard.v1.script.min.js";
     url2 = "assets/dist-assets/js/plugins/datatables.min.js";
@@ -100,14 +101,15 @@ export class MiniorderComponent implements OnInit {
   }
   editar(i){
   	this.editing=true;
+    this.product=this._uw.orderSelected.car[i].productName;
   	this.indice=i;
   	console.log("i: " +i);
   }
-  sendTix(i){
+  sendTix(){
   	this.editing=false;
 //  	console.log("dato:"+this.ngFormAddtixs.value.finalcostPrice);
 
-  	this._uw.orderSelected.car[i].finalcostPrice=this.ngFormAddtixs.value.finalcostPrice;
+  	this._uw.orderSelected.car[this.indice].finalcostPrice=this.ngFormAddtixs.value.finalcostPrice;
   	      this.dataApi.updateTixFinalCostPrice(this._uw.orderSelected,this._uw.idSelected )
         .subscribe(
           // tix => this.router.navigate(['/succesConfig'])

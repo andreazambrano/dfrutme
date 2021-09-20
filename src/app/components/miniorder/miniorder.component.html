@@ -17,20 +17,30 @@
                         <div class="ul-widget__head-label">
                           
                             <h3 class="ul-widget__head-title text-warning" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Costo {{(total/1000)| number:'1.0-0'}}</h3> <h3 class="ul-widget__head-title text-warning" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Costo  {{(total/1000)*(this._uw.currency*1000) | number:'1.0-2'}}</h3>
-
-
                              <h3 class="ul-widget__head-title text-primary" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Venta {{(totalVentas/1000)| number:'1.0-0'}} 
 
-<span class="text-success" >
+                                <span class="text-success" >
                              ({{(totalVentas/1000)- (total/1000) | number:'1.0-0'}})
 
-</span>
-                         </h3> <h3 class="ul-widget__head-title text-primary" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Venta  {{(totalVentas/1000)*(this._uw.currency*1000) | number:'1.0-2'}} 
-<span class="text-success" >
+                                </span>
+                            </h3> 
+                            <h3 class="ul-widget__head-title text-primary" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Venta  {{(totalVentas/1000)*(this._uw.currency*1000) | number:'1.0-2'}} 
+                                <span class="text-success" >
     
                              ({{((totalVentas/1000)*(this._uw.currency*1000))- ((total/1000)*(this._uw.currency*1000) ) | number:'1.0-2'}} )
-</span>
-                         </h3>
+                                </span>
+                            </h3>
+                            <form  class=""[formGroup]="ngFormAddtixs" (ngSubmit) ="sendTix()" >
+                                <div class="col-md-12 col-xs-12"  [hidden]="!editing">
+                                    <div class="form-group">
+                                        <label for="finalcostPrice" style="text-transform: none;">Precio costo {{product}}</label>
+                                        <input type="number" class="form-control" id="finalcostPrice" formControlName="finalcostPrice" 
+                            placeholder="Precio" 
+                            >
+                             <button class="btn btn-primary m-1" type="button" (click)="sendTix()"  >Guardar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
             
                     </div>
@@ -49,7 +59,7 @@
 						                </thead>
 						                <tbody>
 						                    <tr *ngFor="let item of this._uw.orderSelected.car;  index as i"  >
-						                        <td scope="row"[hidden]="editing && i==indice" (click)="editar(i)">
+						                        <td scope="row" (click)="editar(i)">
 						                        	<img class="profile-picture avatar-sm mb-2 img-fluid" src="{{item.images[0]}}" alt="" />
 						                            <div class="ul-product-cart__detail d-inline-block align-middle ml-1">
 						                            	<a>
@@ -58,12 +68,16 @@
 						                                </a>
 						                            </div>
 						                        </td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp ||  this._uw.currency==this._uw.info[0].usd ||editing && i==indice ">{{(item.costPrice /1000 ) | number:'1.0-0'}} </td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd ||editing  && i==indice" >{{(item.globalPrice /1000)  | number:'1.0-0'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.0-0'}} %</span></td>
-						                         <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ||editing && i==indice" >{{(item.costPrice /1000 )*(this._uw.currency*1000) | number:'1.0-2'}}</td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ||editing && i==indice">{{(item.globalPrice /1000)*(this._uw.currency*1000)  | number:'1.0-2'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.0-0'}} %</span></td>
-
-						                 <!--        <td [hidden]="!editing  && i==indice " colspan="3">
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp ||  this._uw.currency==this._uw.info[0].usd  ">{{(item.costPrice /1000 ) | number:'1.0-0'}} 
+                                                     <span style="color: blue;">{{(item.finalcostPrice  ) | number:'1.0-0'}} </span>
+                                                </td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd " >{{(item.globalPrice /1000)  | number:'1.0-0'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.0-0'}} %</span></td>
+						                         <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs " >{{(item.costPrice /1000 )*(this._uw.currency*1000) | number:'1.0-2'}} 
+     <span style="color: blue;">{{(item.finalcostPrice  ) | number:'1.0-0'}} </span>
+                                                 </td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ">{{(item.globalPrice /1000)*(this._uw.currency*1000)  | number:'1.0-2'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.0-0'}} %</span></td>
+<!-- 
+						                        <td [hidden]="!editing  && i==indice " colspan="3">
 						                        	
 					                        	<form  class=""[formGroup]="ngFormAddtixs" (ngSubmit) ="sendTix(i)" >
 					                        		<div class="col-md-3 col-xs-12"  >
