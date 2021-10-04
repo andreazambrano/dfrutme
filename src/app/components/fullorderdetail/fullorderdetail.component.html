@@ -51,16 +51,16 @@
 						                                </a>
 						                            </div>
 						                        </td>
-						                        <td>{{item.costPrice | number:'1.0-0'}}</td>
-						                        <td>{{item.globalPrice | number:'1.0-0'}}</td>
-						                        <td>{{((item.globalPrice/item.costPrice)-1)*100 | number:'1.0-0'}}</td>
-						                        <td>{{((item.globalPrice-item.costPrice)*item.quantity) | number:'1.0-0'}}
+						                        <td>{{item.costPrice | number:'1.2-2'}}</td>
+						                        <td>{{item.globalPrice | number:'1.2-2'}}</td>
+						                        <td>{{((item.globalPrice/item.costPrice)-1)*100 | number:'1.2-2'}}</td>
+						                        <td>{{((item.globalPrice-item.costPrice)*item.quantity) | number:'1.2-2'}}
                                                 </td>
 
-                                                <td *ngIf="item.finalcostPrice">{{item.finalcostPrice | number:'1.0-0'}}
+                                                <td *ngIf="item.finalcostPrice">{{item.finalcostPrice | number:'1.2-2'}}
                                                 </td>
-                                                <td *ngIf="item.finalcostPrice">{{((item.globalPrice/item.finalcostPrice)-1)*100 | number:'1.0-0'}}</td>
-                                                <td *ngIf="item.finalcostPrice">{{(item.globalPrice-item.finalcostPrice)*item.quantity | number:'1.0-0'}}
+                                                <td *ngIf="item.finalcostPrice">{{((item.globalPrice/item.finalcostPrice)-1)*100 | number:'1.2-2'}}</td>
+                                                <td *ngIf="item.finalcostPrice">{{(item.globalPrice-item.finalcostPrice)*item.quantity | number:'1.2-2'}}
                                                 </td> 	
 
 						                    </tr>

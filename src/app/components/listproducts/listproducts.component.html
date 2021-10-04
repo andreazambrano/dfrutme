@@ -38,9 +38,9 @@
                                                                     </div>
                                                                 </div>
                                                             </span></td>
-                                                        <td>{{tix.costPrice | number:'1.0-0'}}    <button class="btn btn-primary btn-block" id="with-input" type="button">edit</button></td>
-                                                         <td>{{tix.globalPrice | number:'1.0-0'}}</td>
-                                                         <td>{{((tix.globalPrice/tix.costPrice)-1)*100 | number:'1.0-0'}}</td>
+                                                        <td>{{tix.costPrice | number:'1.2-2'}}    <button class="btn btn-primary btn-block" id="with-input" type="button">edit</button></td>
+                                                         <td>{{tix.globalPrice | number:'1.2-2'}}</td>
+                                                         <td>{{((tix.globalPrice/tix.costPrice)-1)*100 | number:'1.2-2'}}</td>
                                                         <td [hidden]="!tix.stockStatus"><span style="color: green; font-weight: 600;">Active</span></td>
                                                         <td [hidden]="tix.stockStatus"><span style="color: red; font-weight: 600;">Inactive</span></td>
                                                       <!--   <td><a class="ul-widget4__title d-block" href="dashboard4.html">UI Lib</a><span>Angular 2,Vue.js </span></td> -->

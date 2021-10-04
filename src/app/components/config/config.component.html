@@ -12,7 +12,7 @@
                   <form class="form" [formGroup]="ngFormCurrency" *ngIf="infoNew">
                         <div class="form-group row">
                             <label class="col-sm-8 col-form-label" >Dolar USA ($USD) 
-                            <span style="font-size: 1.5em;"><b>  {{infoNew.usd |  number:'1.0-0' }} Bs.S</b></span>
+                            <span style="font-size: 1.5em;"><b>  {{infoNew.usd |  number:'1.2-2' }} Bs.S</b></span>
                         </label>
                             <div class="col-sm-4" [hidden]="!editing">
                               	<input type="text" class="form-control" id="usd"  placeholder="USD"[(ngModel)]="infoNew.usd"

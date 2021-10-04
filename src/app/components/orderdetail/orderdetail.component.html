@@ -68,7 +68,7 @@
                             <tr>
                                 <th class="text-primary text-16 text-right" scope="row">Total:</th>
                                 <td class="font-weight-700 text-16">
-                                		<h4 class="heading text-primary">{{this._uw.orderSelected.total  |  number:'1.0-0'}} </h4> 
+                                		<h4 class="heading text-primary">{{this._uw.orderSelected.total  |  number:'1.2-2'}} </h4> 
                                 </td>
                             </tr>
                         </tbody>
@@ -116,12 +116,12 @@
                                                         <!-- <span class="text-mute">{{item.presentacion}}</span> -->
 						                            </div>
 						                        </td>
-						                        <td>{{item.costPrice | number:'1.0-0'}}</td>
-						                        <td>{{item.globalPrice | number:'1.0-0'}}</td>
-						                        <td>{{((item.globalPrice/item.costPrice)-1)*100 | number:'1.0-0'}}</td>
+						                        <td>{{item.costPrice | number:'1.2-2'}}</td>
+						                        <td>{{item.globalPrice | number:'1.2-2'}}</td>
+						                        <td>{{((item.globalPrice/item.costPrice)-1)*100 | number:'1.2-2'}}</td>
 						                        <td>
 
-                                                    {{(item.globalPrice-item.costPrice)*item.quantity | number:'1.0-0'}}
+                                                    {{(item.globalPrice-item.costPrice)*item.quantity | number:'1.2-2'}}
                                                    <!--  <a ><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a> -->
                                                 </td>
 						                    </tr>
