@@ -1,8 +1,17 @@
 <div class="main-content pt-4" *ngIf="this._uw.orderSelected">
      <div class="breadcrumb">
         <ul>
-            <li><a routerLink="/orders" >Pedidos</a></li>
-            <li>Detalle del pedido Nro. 
+            <li><a  class="text-warning" >
+      <p class="badge-dot-warning ul-widget6__dot"></p>
+            Pendientes</a>
+
+            </li>
+            <li><a  class="text-success" >
+      <p class="badge-dot-success ul-widget6__dot"></p>
+            Comprados</a>
+
+            </li>
+            <li>Pedido Nro. 
                 <span class="text-primary">
                     {{this._uw.orderSelected.npedido}}
                 </span>
@@ -16,11 +25,11 @@
                     <div class="ul-widget__head v-margin">
                         <div class="ul-widget__head-label">
                           
-                            <h3 class="ul-widget__head-title text-warning" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Costo {{(total/1000)| number:'1.2-2'}}</h3> <h3 class="ul-widget__head-title text-warning" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Costo  {{(total/1000)*(this._uw.currency*1000) | number:'1.0-2'}}</h3>
-                             <h3 class="ul-widget__head-title text-primary" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Venta {{(totalVentas/1000)| number:'1.2-2'}} 
+                            <h3 class="ul-widget__head-title text-warning" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Costo {{(total)| number:'1.2-2'}}</h3> <h3 class="ul-widget__head-title text-warning" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Costo  {{(total)*(this._uw.currency) | number:'1.0-2'}}</h3>
+                             <h3 class="ul-widget__head-title text-primary" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Venta {{(totalVentas)| number:'1.2-2'}} 
 
                                 <span class="text-info" >
-                             (VES {{(totalVentas/1000)- (total/1000) | number:'1.2-2'}}  , {{(((((totalVentas/1000)*(this._uw.currency*1000))/((total/1000)*(this._uw.currency*1000) ))-1)*100) | number:'1.0-3'}} % )
+                             (VES {{(totalVentas)- (total) | number:'1.2-2'}}  , {{(((((totalVentas/1000)*(this._uw.currency*1000))/((total/1000)*(this._uw.currency*1000) ))-1)*100) | number:'1.0-0'}} % )
 
                                 </span>
                             </h3> 
@@ -32,7 +41,7 @@
                             </h3>
                              <h3 class="ul-widget__head-title text-succes">Ahorro  
                                 <span class="text-success"   [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">
-                                $ {{(ahorro *this._uw.currency )/1000 | number:'1.2-2'}} 
+                                VES {{(ahorro *this._uw.currency ) | number:'1.2-2'}} 
                                 </span>
                                  <span class="text-success"   [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">
                                 $ {{(ahorro *this._uw.currency)  | number:'1.0-2'}} 
@@ -43,12 +52,12 @@
 
                              <h3 class="ul-widget__head-title text-succes" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Beneficio  
       <span class="text-success" >
-                                VES {{((totalVentas/1000)- (total/1000)) + (ahorro/1000 *this._uw.currency ) | number:'1.2-2'  }}
+                                VES {{((totalVentas)- (total)) + (ahorro/1000 *this._uw.currency ) | number:'1.2-2'  }}
                            </span>
                             </h3>
                              <h3 class="ul-widget__head-title text-succes" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">Beneficio  
       <span class="text-success" >
-                                $ {{(((totalVentas/1000)*(this._uw.currency*1000))- ((total/1000)*(this._uw.currency*1000) )) + ((ahorro) *this._uw.currency ) | number:'1.0-2'  }}
+                                $ {{(((totalVentas)*(this._uw.currency*1000))- ((total)*(this._uw.currency*1000) )) + ((ahorro) *this._uw.currency ) | number:'1.0-2'  }}
                            </span>
                             </h3>
 
@@ -90,14 +99,19 @@
 						                                </a>
 						                            </div>
 						                        </td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp ||  this._uw.currency==this._uw.info[0].usd  ">{{(item.costPrice /1000 ) | number:'1.2-2'}} 
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp ||  this._uw.currency==this._uw.info[0].usd  ">{{(item.costPrice  ) | number:'1.2-2'}} 
                                                      <span style="color: blue;">{{(item.finalcostPrice  ) | number:'1.2-2'}} </span>
                                                 </td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd " >{{(item.globalPrice /1000)  | number:'1.2-2'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.2-2'}} %</span></td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd " >{{(item.globalPrice )  | number:'1.2-2'}} <span style="color: blue;">{{((((item.globalPrice ) /(item.costPrice  ))-1)*100) | number:'1.0-0'}}</span>
+                                      <span style="color: #009688;">/{{((((item.globalPrice ) /(item.finalcostPrice  ))-1)*100) | number:'1.0-0'}} </span>
+                                    </td>
 						                         <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs " >{{(item.costPrice /1000 )*(this._uw.currency*1000) | number:'1.0-2'}} 
      <span style="color: blue;">{{(item.finalcostPrice  ) *(this._uw.currency) | number:'1.0-3'}} </span>
                                                  </td>
-						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ">{{(item.globalPrice /1000)*(this._uw.currency*1000)  | number:'1.0-2'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.2-2'}} %</span></td>
+						                        <td [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs ">{{(item.globalPrice /1000)*(this._uw.currency*1000)  | number:'1.0-2'}} <span style="color: blue;">{{((((item.globalPrice /1000) /(item.costPrice /1000 ))-1)*100) | number:'1.0-0'}}</span>
+                                      <span style="color: #009688;">/{{((((item.globalPrice /1000) /(item.finalcostPrice /1000 ))-1)*100) | number:'1.0-0'}} </span>
+
+                                    </td>
 <!-- 
 						                        <td [hidden]="!editing  && i==indice " colspan="3">
 						                        	

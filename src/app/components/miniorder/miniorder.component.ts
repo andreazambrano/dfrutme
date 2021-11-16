@@ -113,7 +113,7 @@ export class MiniorderComponent implements OnInit {
     for(let i=0;i<this._uw.orderSelected.car.length;i++){
       if(this._uw.orderSelected.car[i].finalcostPrice!=undefined){
 
-        this.ahorro=(this.ahorro+((this._uw.orderSelected.car[i].costPrice-(this._uw.orderSelected.car[i].finalcostPrice*1000))*this._uw.orderSelected.car[i].quantity));
+        this.ahorro=(this.ahorro+((this._uw.orderSelected.car[i].costPrice-(this._uw.orderSelected.car[i].finalcostPrice))*this._uw.orderSelected.car[i].quantity));
         // this.ahorro=this.ahorro+((this._uw.orderSelected.car[i].costPrice*this._uw.orderSelected.car[i].quantity)-((this._uw.orderSelected.car[i].finalcostPrice*1000)*this._uw.orderSelected.car[i].quantity));
 
       }
